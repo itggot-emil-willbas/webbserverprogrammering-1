@@ -1,0 +1,88 @@
+= Introduktion till databaser
+
+== Vad är en databas?
+
+En databas är en välorganiserad, det vill säga uppbyggd enligt nedskrivna regler, centraliserad, samling av data.
+
+.**Data** vs **information**.
+[NOTE]
+==== 
+Information är behandlad data - det vill säga data, som någon kan använda för att tillföra något slags värde i någon slags process eller sammanhang.
+
+Man kan säga att data blir information när någon tittar på eller behandlar den.
+====
+
+== Databashanterare / Database Management System
+
+En Databashanterare/Databashanteringssystem, eller DBMS (Database Management System), är mjukvara som gör det möjligt att på ett effektivt och säkert sätt definera och modifiera innehåll i en databas.
+
+Man kan inte kommunicera direkt med databasen; all kommunikation sker via databashanteraren.
+
+Det finns i dag två huvudsakliga typer av databaser: relationsdatabaser (vilket är vad vi kommer använda i den här kursen) och dokument/nod-baserade (berörs inte i den här guiden).
+Andra ord som används för att skilja på dessa två typer av databaser är SQL (relationella) och NoSQL (dokument/nod-baserade).
+
+Ordet "relation" är taget från matematiska begreppet "relation" - som betyder just tabell. 
+
+Relationsdatabaser bygger på https://en.wikipedia.org/wiki/Relational_algebra[relationsalgebra]. Som tur är behöver man inte förstå all bakomliggande teori för att kommunicera med en databashanterare.
+
+Det finns flera olika databashanterare för relationsdatabaser, t.ex https://www.sqlite.org/[SQLite], https://www.mysql.com/[MySQL], https://mariadb.org/[MariaDB], https://www.postgresql.org/[PostgreSQL], https://www.oracle.com/database/index.html[Oracle Database], https://www.microsoft.com/en-us/sql-server/sql-server-2016[Microsoft SQL Server].
+
+I stort sett alla applikationer använder i någon grad en databas - t.ex. lagrar webbläsare sin historik, chattprogram sina meddelanden och schoolsoft dina betyg i databaser.
+
+Världens överlägset mest använda databashanterare (och den vi kommer använda i större delen av kursen) är SQLite, som finns installerad på alla iOS-enheter, Android-enheter, och används i både Chrome och Firefox.
+
+== Varför använda en relationsdatabas
+
+Det finns flera anledningar till att använda en (relations)databas:
+
+=== Normalisering av data
+
+Normalisering, eller normaliserad data innebär att man minskar förekomsten av redundant data.
+
+Redundant data innebär att samma data kan finnas på flera ställen samtidigt. Detta tar mer plats än om datan finns på enbart ett ställe.
+
+=== Konsistent data
+
+Om samma data finns på flera ställen är det stor risk att datan blir _inkonsistent_, det vill säga, beroende på vilket ställe man kollar kan man få olika svar.
+
+Genom normalisering kan man förhindra eller minska risken för inkonsistent data. 
+
+=== Enkel delning av data
+
+Flera applikationer kan använda samma databas, och därmed använda samma data.
+
+=== En väldokumenterad standard för informationsutbyte
+
+SQL är ett väldokumenterat språk som väldigt många utvecklare behärskar. Det är därför lätt för nya utvecklare att sätta sig in i ett nytt system.
+
+=== Säkerhet och integritet
+
+De flesta databashanterare innehåller avancerade kontroller av vem som har rättighet att utföra olika operationer i databasen.
+
+=== Validering av data
+
+I de flesta databashanterare kan man skriva regler för hur rader och kolumner i tabeller ska se ut. 
+
+T.ex kan man bestämma att alla rader i användartabellen måste innhålla ett användarnamn, och att varje användarnamn måste vara unikt. 
+Databashanteraren gör det i så fall omöjligt att skriva rader i användatabellen som saknar användarnamn, eller där användarnamnet redan finns på någon annan rad i tabellen.
+
+=== Transaktionssäkerhet
+
+Ofta behöver man utföra operationer i flera, av varandra beroende steg.
+
+Säg till exempel att du skriver mjukvara för att hålla koll på bankkonton, och du vill föra över pengar från ett konto till ett annat konto.
+Då måste du:
+
+1. Ta bort pengarna från konto 1.
+2. Föra in pengerna på konto 2.
+
+Alternativt
+
+1. Föra in pengarna på konto 2.
+2. Ta bort pengarna från konto 1.
+
+Säg att något går fel i steg 2 - kanske har någon angett ett felaktigt kontonummer, eller under tiden som instruktionerna utförs har konto 2 tagits bort.
+I ett system utan transaktionssäkerhet skulle pengarna bara ha försvunnit i tomma intet (eller i alternativ 2, skapats från tomma intet)
+
+I de flesta databashanterare finns därför `transaktioner` - om man lägger sina instruktioner i en transaktion kollar databasen att samtliga instruktioner i transaktionen går att utföra innan de faktiskt utförs.
+Skulle felet i steg 2 hända i en transaktion skulle steg 1 aldrig utföras - och pengarna skulle finnas kvar.

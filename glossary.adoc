@@ -1,0 +1,33 @@
+= Glossary
+
+== Attribut
+
+Ett annat ord för en kolumn i en tabell
+
+== En-till-en-relation
+
+== En-till-många-relation
+
+== Främmande nyckel
+
+== Många-till-många-relation
+
+== Normalform
+
+== Normalisering
+
+== Primärnyckel
+
+== Redundans
+
+== Relation
+
+== Relationstabell
+
+== SQL
+
+Structured Query Language - det språk man använder för att kommunicera med databashanterare. Uttalas (på svenska) "ess-ku-ell", (på engelska) "es-que-ell" eller "sequel" eller "seek well". 
+
+SQL skiljer sig från programmeringsspråk som t.ex Ruby eller Javascript genom att man definerar vilken information man vill ha, och lämnar upp till databashanteraren att avgöra *hur* den på bästa (snabbaste och säkraste) sätt ska hämta efterfrågad data.
+
+== Tabell

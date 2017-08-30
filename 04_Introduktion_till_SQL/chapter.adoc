@@ -1,0 +1,36 @@
+= SQL
+
+För att kommunicera med relationella databashanterare används databasspråket SQL (Structured Query Language).
+
+SQL kan uttalas "ess-ku-ell" (på svenska), "es-que-ell" (på engelska), som Engelska ordet "sequel" eller som "seek well". 
+
+SQL skiljer sig från programmeringsspråk som t.ex Ruby eller Javascript genom att man definerar vilken information man vill ha, och lämnar upp till databashanteraren att avgöra *hur* den på bästa (snabbaste och säkraste) sätt ska hämta efterfrågad data.
+
+.Ruby - rad 8-13 beskriver *hur* datan ska hämtas (i det här fallet med hjälp av en while-loop).
+[source, ruby, linenums, highlight='8-13']
+----
+titles = [ {name: 'BBQ Book', isbn: '123', page_count: 1337}, 
+          {name: 'Grillboken', isbn: '234', page_count: 42}, 
+          ... 
+        ]
+
+long_titles = []
+
+i = 0
+while i < titles.length
+    if titles[i][:page_count] > 500
+        long_titles << books[i]
+    end
+end
+
+p long_titles
+----
+
+
+
+.SQL - *hur* databashanteraren ska hämta den efterfrågade informationen framgår inte i frågan
+[source, sql, linenums]
+----
+SELECT * FROM titles WHERE page_count > 500; <1>
+----
+<1> Förutsatt att det i databasen finns en tabell vid namn titles
