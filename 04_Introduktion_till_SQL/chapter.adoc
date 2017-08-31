@@ -21,6 +21,7 @@ while i < titles.length
     if titles[i][:page_count] > 500
         long_titles << books[i]
     end
+    i += 1
 end
 
 p long_titles
