@@ -180,6 +180,18 @@ Den främmande nyckelns kolumn kan heta precis vad som helst, men i den här bok
 
 == Övningar
 
+=== Datorregister
+
+Alla elever på IT-Gymnasiet Göteborg får låna en dator. Det finns ett inventeringssystem med en databas där alla elever, datorer och lån finns registrerade.
+
+Systemet håller koll på:
+
+* Datorers modell och serienummer
+* Elevers namn och personnummer
+* Vilken elev som har lånat vilken dator
+
+Rita upp de tabeller och relationer (inklusive främmande nycklar) som databasen behöver. Fyll i ett par rader i varje tabell.
+
 === Matkort
 
 I årskurs tre får eleverna på IT-Gymnasiet Göteborg matkort. Företaget som skapar och säljer matkorten till skolorna har (förhoppningsvis) en databas som håller koll på skolor, kort, och låntagare.
