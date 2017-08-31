@@ -6,8 +6,8 @@ SQL kan uttalas "ess-ku-ell" (på svenska), "es-que-ell" (på engelska), som Eng
 
 SQL skiljer sig från programmeringsspråk som t.ex Ruby eller Javascript genom att man definerar vilken information man vill ha, och lämnar upp till databashanteraren att avgöra *hur* den på bästa (snabbaste och säkraste) sätt ska hämta efterfrågad data.
 
-.Ruby - rad 8-13 beskriver *hur* datan ska hämtas (i det här fallet med hjälp av en while-loop).
-[source, ruby, linenums, highlight='8-13']
+.Ruby - rad 8-14 beskriver *hur* datan ska hämtas (i det här fallet med hjälp av en while-loop).
+[source, ruby, linenums, highlight='8-14']
 ----
 titles = [ {name: 'BBQ Book', isbn: '123', page_count: 1337}, 
           {name: 'Grillboken', isbn: '234', page_count: 42}, 
