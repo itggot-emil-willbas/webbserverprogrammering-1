@@ -1,0 +1,47 @@
+= ER-diagram
+
+För att snabbare kunna modellera databaser finns Entity Relationship Diagrams (ER-diagram).
+
+ER-diagram illustrerar en databas logiska uppbyggnad, det vill säga vilka tabeller, attribut och relationer som finns.
+
+== Entitet
+
+Entiteter representerar tabeller i databasen. Entiteter ritas som rektanglar, med namnet (i singular) i mitten.
+
+.Två entiteter
+image::03_ER-diagram/img/entities.png[]
+
+== Attribut
+
+Attribut representerar ett attribut på en tabell. Attribut ritas som en ovalel, med namnet i mitten. Alla attribut tillhör någon entitet,
+och man drar ett streck mellan entiteten och attributet för att visa vilken entitet ett attribut tillhör.
+
+.Två entiteter med attribut
+image::03_ER-diagram/img/entities_with_attributes.png[]
+
+`Primärnycklarna` är alltid understrukna.
+
+
+[WARNING]
+==== 
+*Främmande nycklar*
+
+Främmande nycklar ska aldrig ritas ut i ER-diagrammet, deras placering framgår av relationerna (se nästa rubrik)
+====
+
+
+== Relation
+
+Relationer visar på kopplingar mellan två entiteter. Relationer ritas som romber. I mitten av romben står ett ett eller flera ord som beskriver relationen (oftast från ena entitetens perspektiv). 
+Varje relation är kopplad med streck till de ingående entiteterna.
+I varje ände av strecket framgår relationens `kardinalitet`, som låter oss förstå om det t.ex. är en en-till-många-relation.
+
+.Två entiteter med attribut och relation
+image::03_ER-diagram/img/entities_with_attributes_and_relations.png[]
+
+I exemplet ovan kan man utläsa att *en* författare kan skriva *många* (men minst 1) böcker,
+men en bok kan bara ha en författare. Det är med andra ord en en-till-många-relation.
+
+Relationen är i exemplet ovan skrivet från författarens perspektiv ("wrote"), men skulle lika gärna kunna vara skriven från en boks perspektiv (t.ex "written by" eller "belongs to").
+
+Från relationens kardinalitet kan vi utläsa att det i databasens books-tabell ska skapas en främmande nyckel med namnet "author_id" 
