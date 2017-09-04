@@ -326,7 +326,7 @@ Flera av frågorna har besvarats med "Ja". Anteckning bör vara en entitet.
 Baserat på slutsatserna kan vi skapa en skiss över våra entiteter med exempelattribut:
 
 .Exempelentiteter med attribut
-image::04_Databasmodellering_med_ER/img/entities.png[Exempelentiteter med attribut]
+image::images/04/entities.png[Exempelentiteter med attribut]
 
 ////
 [graphviz, ./img/entities, svg, layout="fdp"]
@@ -383,7 +383,7 @@ En titel kan ha många anteckningar, men varje anteckning tillhör bara en titel
 I ER-diagrammet markeras en en-till-många-relation med hjälp av en etta ( 1 ) i "ett-änden" av relationen, och en asterisk ( * ) i många-änden av relationen:
 
 .En-till-många-relation mellan title och note
-image::04_Databasmodellering_med_ER/img/one-to-many.png[En-till-många-relation mellan title och note]
+image::images/04/one-to-many.png[En-till-många-relation mellan title och note]
 
 I databasen kommer relationen skapas genom att det i många-ändens-tabell läggs till en främmande nyckel som innehåller en-ändens-primärnyckel.
 
@@ -408,7 +408,7 @@ I databasen kommer relationen skapas genom att det i många-ändens-tabell lägg
 Vissa entiteter, som t.ex anteckning, kommer vara i en-änden av flera relationer: En användare kan ha flera anteckningar, men en anteckning tillhör bara en användare.
 
 .En-till-många-relationer mellan note och title och note och user
-image::04_Databasmodellering_med_ER/img/one-to-many2.png[En-till-många-relationer mellan note och title och note och user]
+image::images/04/one-to-many2.png[En-till-många-relationer mellan note och title och note och user]
 
 .User-tabell ("en-änden" av relationen)
 [width="30%" cols="1,2,1,options="header"]
@@ -438,7 +438,7 @@ En titel kan tillhöra många genres, och varje genre kan ha flera titlar.
 I ER-diagrammet markeras en många-till-många-relation med hjälp av en asterisker ( * ) i båda-ändarna av relationen:
 
 .Många-till-många-relation mellan genre och titel
-image::04_Databasmodellering_med_ER/img/many-to-many.png[Många-till-många-relation mellan genre och titel]
+image::images/04/many-to-many.png[Många-till-många-relation mellan genre och titel]
 
 Många till-många-relationer går inte att skapa i databastabeller, utan kräver en extra tabell; en så kallad _relationstabell_.
 

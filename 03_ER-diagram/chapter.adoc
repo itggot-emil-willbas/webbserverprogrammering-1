@@ -9,7 +9,7 @@ ER-diagram illustrerar en databas logiska uppbyggnad, det vill säga vilka tabel
 Entiteter representerar tabeller i databasen. Entiteter ritas som rektanglar, med namnet (i singular) i mitten.
 
 .Två entiteter
-image::03_ER-diagram/img/entities.png[]
+image::images/03/entities.png[]
 
 == Attribut
 
@@ -17,7 +17,7 @@ Attribut representerar ett attribut på en tabell. Attribut ritas som en ovalel,
 och man drar ett streck mellan entiteten och attributet för att visa vilken entitet ett attribut tillhör.
 
 .Två entiteter med attribut
-image::03_ER-diagram/img/entities_with_attributes.png[]
+image::images/03/entities_with_attributes.png[]
 
 `Primärnycklarna` är alltid understrukna.
 
@@ -37,7 +37,7 @@ Varje relation är kopplad med streck till de ingående entiteterna.
 I varje ände av strecket framgår relationens `kardinalitet`, som låter oss förstå om det t.ex. är en en-till-många-relation.
 
 .Två entiteter med attribut och relation
-image::03_ER-diagram/img/entities_with_attributes_and_relations.png[]
+image::images/03/entities_with_attributes_and_relations.png[]
 
 I exemplet ovan kan man utläsa att *en* författare kan skriva *många* (men minst 1) böcker,
 men en bok kan bara ha en författare. Det är med andra ord en en-till-många-relation.
