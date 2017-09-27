@@ -1,0 +1,78 @@
+= Linux
+
+== Navigation i filsystemet
+
+För att navigera i filsystemet använder du följande kommandon:
+
+Observera att linux använder `/` (slash) för att dela upp sökvägen, inte `\` (backslash).
+
+[source, zsh]
+----
+pwd       #<1>
+ls        #<2>
+ls -la    #<3>
+cd ..     #<4>
+cd /      #<5>
+cd mapp   #<6>
+----
+<1> **P**rint **W**orking **D**irectory. Skriver ut absoluta sökvägen till aktuell mapp.
+<2> **L**i**s**t. Skriver ut namn på icke-dolda filer och mappar i aktuell mapp. Motsvarar `Dir /b` i Windows.
+<3> **L**i**s**t **L**ist **A**ll. Skriver ut en detaljerad "tabell" med namn på samtliga filer och mappar i aktuell mapp. Motsvarar `Dir` i Windows.
+<4> **C**hange **D**irectory. Går upp en nivå i filträdet - precis som Windows.
+<5> **C**hange **D**irectory. Går till roten av filsystemet - motsvarande `cd c:\` i Windows.
+<6> **C**hange **D**irectory. Går till mappen definerad i sökväg - precis som i Windows.
+
+== Manipulering av filer och mappar
+
+[source, zsh]
+----
+touch filnamn    #<1>
+mkdir mappnamn   #<2>
+mv namn nyttnamn #<3>
+rm filnamn       #<4>
+----
+<1> Skapar en tom fil med namnet "filnamn" (eller uppdaterar datum filen senast blev manipulerad, om filen redan finns).
+<2> skapar en tom mapp med namnet "mappnamn"
+<3> byter namn på en fil/mapp med namnet "namn" till namnet "nyttnamn"
+<4> tar bort filen med namnet "filnamn" - obs - den hamnar inte i papperskorgen!
+
+== Ip-adress
+
+För att kunna surfa till din webbapplikation behöver du veta dess ip-adress.
+
+Kommandot `ifconfig` listar relevant nätverksinformation:
+
+[source, cmd, highlight=12]
+----
+ifconfig #<1>
+enp0s3    Link encap:Ethernet  HWaddr 08:00:27:ac:8c:09  
+          inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0 #<2>
+          inet6 addr: fe80::a00:27ff:feac:8c09/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:586 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:422 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:64092 (64.0 KB)  TX bytes:59134 (59.1 KB)
+
+enp0s8    Link encap:Ethernet  HWaddr 08:00:27:64:6a:ee  
+          inet addr:192.168.xxx.xxx  Bcast:192.168.195.255  Mask:255.255.252.0 #<3>
+          inet6 addr: fe80::a00:27ff:fe64:6aee/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1591 errors:0 dropped:8 overruns:0 frame:0
+          TX packets:19 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:223955 (223.9 KB)  TX bytes:2584 (2.5 KB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0 €<4>
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:36 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:36 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1 
+          RX bytes:20865 (20.8 KB)  TX bytes:20865 (20.8 KB)
+----
+<1> Motsvarar `ipconfig` i windows
+<2> Det här är en speciell ip-adress virtualbox använder
+<3> 192.168.xxx.xxx är adressen på elevnätet - det är den här du vill ha.
+<4> 127.0.0.1 är den virtuella maskinens interna ip-adress.

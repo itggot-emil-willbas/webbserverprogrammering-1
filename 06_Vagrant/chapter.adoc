@@ -1,0 +1,282 @@
+:source-highlighter: pygments
+= Vagrant
+
+http://vagrantup.com[Vagrant] är ett program som underlättar att bygga och starta virtuella operativsystemsmaskiner.
+
+I den här kursen använder vi Vagrant för att snabbt kunna installera, konfigurera, och starta virtuella linuxmaskiner att köra våra webbapplikationer på.
+
+== Virtualiseringsstöd i BIOS
+
+1. Stäng av datorn (starta **inte** om).
+2. Starta datorn igen. Följ sedan instruktionerna nedan:
+
+När du ser texten _To Interrupt normal startup, press Enter_, tryck på kbd:[Enter ↵].
+
+.BIOS Interrupt
+image::images/06/1.jpg[BIOS Interrupt]
+
+Om datorn går vidare till Windows-uppstarten får du stänga av datorn och försöka igen.
+
+När du ser _Startup Interrupt Menu_ trycker du på kbd:[F1].
+
+.Startup Interrupt Menu
+image::images/06/2.jpg[Startup Interrupt Menu]
+
+Du får nu se se _Main-fliken i bios_:
+
+.Main-fliken i BIOS
+image::images/06/3.jpg[Main-fliken i BIOS]
+
+Använd piltangenterna kbd:[◀]kbd:[▶] för att navigera till _Security_.
+
+.Security-fliken i BIOS
+image::images/06/4.jpg[Security-fliken i BIOS]
+
+Använd piltangenterna kbd:[▲]kbd:[▼]för att markera _Disabled_. Tryck på kbd:[Enter ↵].
+
+.Intel Virtualization Technology Disabled
+image::images/06/5.jpg[Intel Virtualization Technology Disabled]
+
+Använd sen piltangenterna kbd:[▲]kbd:[▼]för att välja _Enabled_, och sen kbd:[Enter ↵] igen.
+
+.Intel Virtualization Technology Enabled
+image::images/06/6.jpg[.Intel Virtualization Technology Enabled]
+
+Spara ändringarna i BIOS genom att trycka på kbd:[F10].
+
+.Setup Confirmation
+image::images/06/7.jpg[Setup Confirmation]
+
+Välj _Yes_ med piltangenterna kbd:[◀]kbd:[▶] och tryck på kbd:[Enter ↵]. Datorn startar nu om.
+
+== Registrering av virtuell maskin-fil.
+
+För att registrera den virtuella maskinen så Vagrant kan använda den behöver vi importera filen till vagrant.
+(filen som innehåller maskinen finns med i imagen för din dator (i mappen `c:\vagrant_boxes`)).
+
+I terminalen, skriv
+
+[source, cmd]
+----
+vagrant box add c:\vagrant-boxes\namnet-på-filen.box --name ubuntu-server <1> <2>
+----
+<1> Byt ut `namnet-på-filen` mot filens riktiga namn
+<2> Värdet efter `--name` är namnet den virtuella maskinen kommer registreras som i vagrants "databas".
+
+Vagrant kommer nu packa upp filen och registrera den i sin databas.
+
+== Skapande av virtuell maskin
+
+Skapa en mapp för din webapplikation. Navigera till mappen i terminalen och skriv:
+
+[source, cmd]
+----
+vagrant init ubuntu-server <1>
+----
+<1> byt ut `ubuntu-server` mot namnet du registrerade din virtuella maskin med.
+
+Vagrant skapar nu en `Vagrantfile` i mappen du körde kommandot:
+
+[source, cmd]
+----
+A `Vagrantfile` has been placed in this directory. You are now
+ready to `vagrant up` your first virtual environment! Please read
+the comments in the Vagrantfile as well as documentation on
+`vagrantup.com` for more information on using Vagrant.
+----
+
+== Konfigurering av nätverk för den virtuella maskinen
+
+För att kunna komma åt webbservern på din virtuella maskin behöver du konfigurera nätverket.
+
+Öppna `Vagrantfile` i en editor. 
+
+Leta reda på raden `# config.vm.network "public network"` och avkommentera den.
+
+[source, ruby, highlight='5']
+----
+...
+  # Create a public network, which generally matched to bridged network.
+  # Bridged networks make the machine appear as another physical device on
+  # your network.
+  config.vm.network "public_network" <1>
+...
+----
+<1> Ta bort kommentaren på den här raden.
+
+När din virtuella maskin bootar kommer den få en egen ip-adress. 
+
+Alla (på samma nätverk) kan komma åt den virtuella maskinen med hjälp av dess ip-adress.
+
+== Starta den virtuella maskinen
+
+I samma mapp som `Vagrantfile`, skriv
+
+[source, cmd]
+----
+vagrant up
+----
+
+Den virtuella maskinen bootas och du kommer se en utskrift i terminalen liknande denna:
+
+[source, cmd]
+----
+==> default: Importing base box 'ubuntu-server'...
+Progress: 30%
+----
+
+När maskinen är importerad kommer den fråga vilket nätverkskort den ska använda:
+
+[source, cmd, highlight=6]
+----
+==> default: Matching MAC address for NAT networking...
+==> default: Setting the name of the VM: intro_vagrant_och_sinatra_default_1506500026362_91339
+==> default: Clearing any previously set network interfaces...
+==> default: Available bridged network interfaces:
+1) en5: Thunderbolt Ethernet Slot 1
+2) en0: Wi-Fi (AirPort) #<1>
+3) en1: Thunderbolt 1
+4) en2: Thunderbolt 18
+5) bridge0
+6) p2p0
+7) awdl0
+==> default: When choosing an interface, it is usually the one that is
+==> default: being used to connect to the internet.
+    default: Which interface should the network bridge to? 
+----
+<1> Välj alternativet som verkar vara ditt wifi-nätverskort.
+
+Efter du valt nätverkskort fortsätter maskinen att boota:
+
+[source, cmd]
+----
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+    default: Adapter 2: bridged
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+==> default: Configuring and enabling network interfaces...
+==> default: Mounting shared folders...
+    default: /vagrant => /Users/daniel.berg/Documents/Kurser/Webbserverprogrammering 1/intro_vagrant_och_sinatra
+----
+
+Om du vill kan du dubbelkolla att maskinen faktiskt körs:
+
+[source, cmd]
+----
+vagrant status
+----
+
+Vilket förhoppningsvis ger följande utskrift:
+
+
+[source, cmd]
+----
+Current machine states:
+
+default                   running (virtualbox)
+
+The VM is running. To stop this VM, you can run `vagrant halt` to
+shut it down forcefully, or you can run `vagrant suspend` to simply
+suspend the virtual machine. In either case, to restart it again,
+simply run `vagrant up`.
+----
+
+== Koppla upp sig mot den virtuella maskinen
+
+För att kontrollera den virtuella maskinen kommer du använda dig av SSH; **S**ecure **SH**ell:
+
+[source, cmd]
+----
+vagrant ssh
+----
+
+Du loggas nu in i den virtuella maskinen, och möts av en linuxterminal:
+
+[source, cmd]
+----
+Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.4.0-62-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+56 packages can be updated.
+30 updates are security updates.
+
+Last login: Wed Aug  9 15:43:57 2017 from 10.0.2.2
+[Oh My Zsh] Would you like to check for updates? [Y/n]: #<1>
+➜  ~ 
+----
+<1> Tryck på kbd:[N] (du kan uppdatera nästa gång om du vill).
+
+== Delad mapp
+
+Vagrant delar automagiskt innehållet i mappen med `Vagrantfile` mellan Windows och linux.
+
+Detta innebär att du kan jobba med filerna i Windows, och webbservern som körs i den virtuella linuxmaskinen kan komma åt filerna.
+I den virtuella maskinen hittar du den delade mappen i `/vagrant`
+
+."dir" i den delade mappen i Windows
+[source, cmd]
+----
+C:\Users\admin\Documents\Webbserverprogrammering\min_webapp>dir
+ Volume in drive C has no label.
+ Volume Serial Number is 24BD-F54D
+
+ Directory of C:\Users\admin\Documents\Webbserverprogrammering\min_webapp
+
+2017-09-27  12:50    <DIR>          .
+2017-09-27  12:50    <DIR>          ..
+2017-09-27  12:49               166 config.ru
+2017-09-27  12:49                50 Gemfile
+2017-09-27  12:49                63 min_webapp.rb
+2017-09-27  12:47              3018 Vagrantfile
+               4 File(s)              0 bytes
+               2 Dir(s)  15 661 158 400 bytes free
+
+C:\Users\admin\Documents\Webbserverprogrammering\min_webapp>
+----
+
+."ls -la" i /vagrant i den virtuella maskinen
+[source, zsh]
+----
+➜ /vagrant ls -la
+total 20
+drwxr-xr-x  1 vagrant vagrant  238 Sep 27 12:55 .
+drwxr-xr-x 24 root    root    4096 Aug  9 15:15 ..
+-rw-r--r--  1 vagrant vagrant  166 Sep 26 09:26 config.ru
+-rw-r--r--  1 vagrant vagrant   50 Sep 26 09:26 Gemfile
+-rw-r--r--  1 vagrant vagrant   63 Sep 26 09:24 min_webapp.rb
+drwxr-xr-x  1 vagrant vagrant  102 Sep 27 10:13 .vagrant
+-rw-r--r--  1 vagrant vagrant 3018 Sep 27 10:13 Vagrantfile
+----
+
+== Inloggning
+
+För att logga ut från den virtuella maskinen skriver du:
+
+[source, zsh, highlight=1]
+----
+➜ exit
+Connection to 127.0.0.1 closed.
+----
+
+När uppkopplingen stängts är du tillbaks i Windows.
+
+== Avstängning
+
+För att stänga av den virtuella maskinen skriver du i maskinens mapp i Windows:
+
+[source, cmd, highlight=1]
+----
+vagrant halt
+==> default: Attempting graceful shutdown of VM...
+----

@@ -2,6 +2,7 @@
 :icons: font
 :toc: left
 :source-highlighter: pygments
+:experimental:
 
 
 = Webbserverprogrammering 1
@@ -14,4 +15,9 @@ include::03_ER-diagram/chapter.adoc[leveloffset=+1]
 
 include::04_Databasmodellering_med_ER/chapter.adoc[leveloffset=+1]
 
-// include::04_Introduktion_till_SQL/chapter.adoc[leveloffset=+1]
+include::05_Introduktion_till_SQL/chapter.adoc[leveloffset=+1]
+
+include::06_Vagrant/chapter.adoc[leveloffset=+1]
+
+include::07_Linux/chapter.adoc[leveloffset=+1]
+
