@@ -13,39 +13,39 @@ I den här kursen använder vi Vagrant för att snabbt kunna installera, konfigu
 När du ser texten _To Interrupt normal startup, press Enter_, tryck på kbd:[Enter ↵].
 
 .BIOS Interrupt
-image::images/06/1.jpg[BIOS Interrupt]
+image::images/06/1.JPG[BIOS Interrupt]
 
 Om datorn går vidare till Windows-uppstarten får du stänga av datorn och försöka igen.
 
 När du ser _Startup Interrupt Menu_ trycker du på kbd:[F1].
 
 .Startup Interrupt Menu
-image::images/06/2.jpg[Startup Interrupt Menu]
+image::images/06/2.JPG[Startup Interrupt Menu]
 
 Du får nu se se _Main-fliken i bios_:
 
 .Main-fliken i BIOS
-image::images/06/3.jpg[Main-fliken i BIOS]
+image::images/06/3.JPG[Main-fliken i BIOS]
 
 Använd piltangenterna kbd:[◀]kbd:[▶] för att navigera till _Security_.
 
 .Security-fliken i BIOS
-image::images/06/4.jpg[Security-fliken i BIOS]
+image::images/06/4.JPG[Security-fliken i BIOS]
 
 Använd piltangenterna kbd:[▲]kbd:[▼]för att markera _Disabled_. Tryck på kbd:[Enter ↵].
 
 .Intel Virtualization Technology Disabled
-image::images/06/5.jpg[Intel Virtualization Technology Disabled]
+image::images/06/5.JPG[Intel Virtualization Technology Disabled]
 
 Använd sen piltangenterna kbd:[▲]kbd:[▼]för att välja _Enabled_, och sen kbd:[Enter ↵] igen.
 
 .Intel Virtualization Technology Enabled
-image::images/06/6.jpg[.Intel Virtualization Technology Enabled]
+image::images/06/6.JPG[.Intel Virtualization Technology Enabled]
 
 Spara ändringarna i BIOS genom att trycka på kbd:[F10].
 
 .Setup Confirmation
-image::images/06/7.jpg[Setup Confirmation]
+image::images/06/7.JPG[Setup Confirmation]
 
 Välj _Yes_ med piltangenterna kbd:[◀]kbd:[▶] och tryck på kbd:[Enter ↵]. Datorn startar nu om.
 
