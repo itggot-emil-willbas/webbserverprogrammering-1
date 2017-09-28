@@ -189,7 +189,7 @@ suspend the virtual machine. In either case, to restart it again,
 simply run `vagrant up`.
 ----
 
-== Koppla upp sig mot den virtuella maskinen
+== Logga in
 
 För att kontrollera den virtuella maskinen kommer du använda dig av SSH; **S**ecure **SH**ell:
 
@@ -259,7 +259,7 @@ drwxr-xr-x  1 vagrant vagrant  102 Sep 27 10:13 .vagrant
 -rw-r--r--  1 vagrant vagrant 3018 Sep 27 10:13 Vagrantfile
 ----
 
-== Inloggning
+== Logga ut
 
 För att logga ut från den virtuella maskinen skriver du:
 
@@ -271,7 +271,7 @@ Connection to 127.0.0.1 closed.
 
 När uppkopplingen stängts är du tillbaks i Windows.
 
-== Avstängning
+== Stänga av
 
 För att stänga av den virtuella maskinen skriver du i maskinens mapp i Windows:
 
