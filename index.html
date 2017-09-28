@@ -1,0 +1,3297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.5">
+<title>Webbserverprogrammering 1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+/* Remove comment around @import statement below when using as a custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+[hidden],template{display:none}
+script{display:none!important}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:transparent}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.spread{width:100%}
+p.lead,.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{font-size:1.21875em;line-height:1.6}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:none}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #ddddd8;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol,ul.no-bullet,ol.no-bullet{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ul.no-bullet{list-style:none}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite:before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media only screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7;font-weight:bold}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
+.clearfix:after,.float-group:after{clear:both}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
+pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menu{color:rgba(0,0,0,.8)}
+b.button:before,b.button:after{position:relative;top:-1px;font-weight:400}
+b.button:before{content:"[";padding:0 3px 0 2px}
+b.button:after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header:before,#header:after,#content:before,#content:after,#footnotes:before,#footnotes:after,#footer:before,#footer:after{content:" ";display:table}
+#header:after,#content:after,#footnotes:after,#footer:after{clear:both}
+#content{margin-top:1.25em}
+#content:before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #ddddd8}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #ddddd8;padding-bottom:8px}
+#header .details{border-bottom:1px solid #ddddd8;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span:before{content:"\00a0\2013\00a0"}
+#header .details br+span.author:before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark:before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber:after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #ddddd8;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #efefed;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media only screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #efefed;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}
+@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+.sect1{padding-bottom:.625em}
+@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}
+.sect1+.sect1{border-top:1px solid #efefed}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor:before,h2>a.anchor:before,h3>a.anchor:before,#toctitle>a.anchor:before,.sidebarblock>.content>.title>a.anchor:before,h4>a.anchor:before,h5>a.anchor:before,h6>a.anchor:before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock>caption.title{white-space:nowrap;overflow:visible;max-width:0}
+.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #ddddd8;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock pre:not(.highlight),.listingblock pre[class="highlight"],.listingblock pre[class^="highlight "],.listingblock pre.CodeRay,.listingblock pre.prettyprint{background:#f7f7f8}
+.sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
+.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;padding:1em;font-size:.8125em}
+.literalblock pre.nowrap,.literalblock pre[class].nowrap,.listingblock pre.nowrap,.listingblock pre[class].nowrap{overflow-x:auto;white-space:pre;word-wrap:normal}
+@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]:before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:#999}
+.listingblock:hover code[data-lang]:before{display:block}
+.listingblock.terminal pre .command:before{content:attr(data-prompt);padding-right:.5em;color:#999}
+.listingblock.terminal pre .command:not([data-prompt]):before{content:"$"}
+table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
+table.pyhltable td.code{padding-left:.75em;padding-right:0}
+pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #ddddd8}
+pre.pygments .lineno{display:inline-block;margin-right:.25em}
+table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock blockquote p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote:before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.5em;margin-right:.5ex;text-align:right}
+.quoteblock .quoteblock{margin-left:0;margin-right:0;padding:.5em 0;border-left:3px solid rgba(0,0,0,.6)}
+.quoteblock .quoteblock blockquote{padding:0 0 0 .75em}
+.quoteblock .quoteblock blockquote:before{display:none}
+.verseblock{margin:0 1em 1.25em 1em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract{margin:0 0 1.25em 0;display:block}
+.quoteblock.abstract blockquote,.quoteblock.abstract blockquote p{text-align:left;word-spacing:0}
+.quoteblock.abstract blockquote:before,.quoteblock.abstract blockquote p:first-of-type:before{display:none}
+table.tableblock{max-width:100%;border-collapse:separate}
+table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
+table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
+table.grid-cols th.tableblock,table.grid-cols td.tableblock{border-width:0 1px 0 0}
+table.grid-all *>tr>.tableblock:last-child,table.grid-cols *>tr>.tableblock:last-child{border-right-width:0}
+table.grid-rows th.tableblock,table.grid-rows td.tableblock{border-width:0 0 1px 0}
+table.grid-all tbody>tr:last-child>th.tableblock,table.grid-all tbody>tr:last-child>td.tableblock,table.grid-all thead:last-child>tr>th.tableblock,table.grid-rows tbody>tr:last-child>th.tableblock,table.grid-rows tbody>tr:last-child>td.tableblock,table.grid-rows thead:last-child>tr>th.tableblock{border-bottom-width:0}
+table.grid-rows tfoot>tr>th.tableblock,table.grid-rows tfoot>tr>td.tableblock{border-width:1px 0 0 0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot{border-width:1px 0}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+td>div.verse{white-space:pre}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
+ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
+ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
+ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
+ul.inline>li>*{display:block}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
+.colist>table tr>td:last-of-type{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left,.imageblock[style*="float: left"]{margin:.25em .625em 1.25em 0}
+.imageblock.right,.imageblock[style*="float: right"]{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em 0;border-width:1px 0 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;text-indent:-1.05em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background-color:#00fafa}
+.black{color:#000}
+.black-background{background-color:#000}
+.blue{color:#0000bf}
+.blue-background{background-color:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background-color:#fa00fa}
+.gray{color:#606060}
+.gray-background{background-color:#7d7d7d}
+.green{color:#006000}
+.green-background{background-color:#007d00}
+.lime{color:#00bf00}
+.lime-background{background-color:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background-color:#7d0000}
+.navy{color:#000060}
+.navy-background{background-color:#00007d}
+.olive{color:#606000}
+.olive-background{background-color:#7d7d00}
+.purple{color:#600060}
+.purple-background{background-color:#7d007d}
+.red{color:#bf0000}
+.red-background{background-color:#fa0000}
+.silver{color:#909090}
+.silver-background{background-color:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background-color:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background-color:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background-color:#fafa00}
+span.icon>.fa{cursor:default}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note:before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip:before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning:before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution:before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important:before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]:after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@media print{@page{margin:1.25cm .75cm}
+*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare):after,a[href^="https:"]:not(.bare):after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]:after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #ddddd8!important;padding-bottom:0!important}
+.sect1{padding-bottom:0!important}
+.sect1+.sect1{border:0!important}
+#header>h1:first-child{margin-top:1.25rem}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em 0}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span:before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]:before{display:block}
+#footer{background:none!important;padding:0 .9375em}
+#footer-text{color:rgba(0,0,0,.6)!important;font-size:.9em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<style>
+.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments, .listingblock .pygments code { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #408080; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { border: 1px solid #FF0000 } /* Error */
+.listingblock .pygments .tok-k { color: #008000; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-o { color: #666666 } /* Operator */
+.listingblock .pygments .tok-ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.listingblock .pygments .tok-cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #BC7A00 } /* Comment.Preproc */
+.listingblock .pygments .tok-cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.listingblock .pygments .tok-c1 { color: #408080; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #408080; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #A00000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #FF0000 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #888888 } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #0044DD } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #008000 } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #B00040 } /* Keyword.Type */
+.listingblock .pygments .tok-m { color: #666666 } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #BA2121 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #7D9029 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #008000 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.listingblock .pygments .tok-no { color: #880000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #AA22FF } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #999999; font-weight: bold } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #0000FF } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #A0A000 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.listingblock .pygments .tok-nt { color: #008000; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #19177C } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #bbbbbb } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #666666 } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #666666 } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #666666 } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #666666 } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #666666 } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sa { color: #BA2121 } /* Literal.String.Affix */
+.listingblock .pygments .tok-sb { color: #BA2121 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #BA2121 } /* Literal.String.Char */
+.listingblock .pygments .tok-dl { color: #BA2121 } /* Literal.String.Delimiter */
+.listingblock .pygments .tok-sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #BA2121 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #BA2121 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #008000 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #BB6688 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #BA2121 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #19177C } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #008000 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-fm { color: #0000FF } /* Name.Function.Magic */
+.listingblock .pygments .tok-vc { color: #19177C } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #19177C } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #19177C } /* Name.Variable.Instance */
+.listingblock .pygments .tok-vm { color: #19177C } /* Name.Variable.Magic */
+.listingblock .pygments .tok-il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Webbserverprogrammering 1</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduktion_till_databaser">1. Introduktion till databaser</a>
+<ul class="sectlevel2">
+<li><a href="#_vad_är_en_databas">1.1. Vad är en databas?</a></li>
+<li><a href="#_databashanterare_database_management_system">1.2. Databashanterare / Database Management System</a></li>
+<li><a href="#_varför_använda_en_relationsdatabas">1.3. Varför använda en relationsdatabas</a></li>
+</ul>
+</li>
+<li><a href="#_tabeller_och_relationer">2. Tabeller och relationer</a>
+<ul class="sectlevel2">
+<li><a href="#_tupler">2.1. Tupler</a></li>
+<li><a href="#_attribut">2.2. Attribut</a></li>
+<li><a href="#_primärnyckel">2.3. Primärnyckel</a></li>
+<li><a href="#_normalisering">2.4. Normalisering</a></li>
+<li><a href="#_relationer">2.5. Relationer</a></li>
+<li><a href="#_främmande_nyckel">2.6. Främmande nyckel</a></li>
+<li><a href="#_Övningar">2.7. Övningar</a></li>
+</ul>
+</li>
+<li><a href="#_er_diagram">3. ER-diagram</a>
+<ul class="sectlevel2">
+<li><a href="#_entitet">3.1. Entitet</a></li>
+<li><a href="#_attribut_2">3.2. Attribut</a></li>
+<li><a href="#_relation">3.3. Relation</a></li>
+</ul>
+</li>
+<li><a href="#_databasmodellering_med_er_diagram">4. Databasmodellering med ER-diagram</a>
+<ul class="sectlevel2">
+<li><a href="#_identifiera_substantiv">4.1. Identifiera substantiv</a></li>
+<li><a href="#_frågor_för_att_skilja_entiteter_från_attribut">4.2. Frågor för att skilja entiteter från attribut</a></li>
+<li><a href="#_entiteter_med_exempelattribut">4.3. Entiteter med exempelattribut</a></li>
+<li><a href="#_associationer_kardinalitet">4.4. Associationer &amp; Kardinalitet</a></li>
+</ul>
+</li>
+<li><a href="#_sql">5. SQL</a></li>
+<li><a href="#_vagrant">6. Vagrant</a>
+<ul class="sectlevel2">
+<li><a href="#_virtualiseringsstöd_i_bios">6.1. Virtualiseringsstöd i BIOS</a></li>
+<li><a href="#_registrering_av_virtuell_maskin_fil">6.2. Registrering av virtuell maskin-fil.</a></li>
+<li><a href="#_skapande_av_virtuell_maskin">6.3. Skapande av virtuell maskin</a></li>
+<li><a href="#_konfigurering_av_nätverk_för_den_virtuella_maskinen">6.4. Konfigurering av nätverk för den virtuella maskinen</a></li>
+<li><a href="#_starta_den_virtuella_maskinen">6.5. Starta den virtuella maskinen</a></li>
+<li><a href="#_logga_in">6.6. Logga in</a></li>
+<li><a href="#_delad_mapp">6.7. Delad mapp</a></li>
+<li><a href="#_logga_ut">6.8. Logga ut</a></li>
+<li><a href="#_stänga_av">6.9. Stänga av</a></li>
+</ul>
+</li>
+<li><a href="#_linux">7. Linux</a>
+<ul class="sectlevel2">
+<li><a href="#_navigation_i_filsystemet">7.1. Navigation i filsystemet</a></li>
+<li><a href="#_manipulering_av_filer_och_mappar">7.2. Manipulering av filer och mappar</a></li>
+<li><a href="#_ip_adress">7.3. Ip-adress</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_introduktion_till_databaser">1. Introduktion till databaser</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_vad_är_en_databas">1.1. Vad är en databas?</h3>
+<div class="paragraph">
+<p>En databas är en välorganiserad, det vill säga uppbyggd enligt nedskrivna regler, centraliserad, samling av data.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title"><strong>Data</strong> vs <strong>information</strong>.</div>
+<div class="paragraph">
+<p>Information är behandlad data - det vill säga data, som någon kan använda för att tillföra något slags värde i någon slags process eller sammanhang.</p>
+</div>
+<div class="paragraph">
+<p>Man kan säga att data blir information när någon tittar på eller behandlar den.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_databashanterare_database_management_system">1.2. Databashanterare / Database Management System</h3>
+<div class="paragraph">
+<p>En Databashanterare/Databashanteringssystem, eller DBMS (Database Management System), är mjukvara som gör det möjligt att på ett effektivt och säkert sätt definera och modifiera innehåll i en databas.</p>
+</div>
+<div class="paragraph">
+<p>Man kan inte kommunicera direkt med databasen; all kommunikation sker via databashanteraren.</p>
+</div>
+<div class="paragraph">
+<p>Det finns i dag två huvudsakliga typer av databaser: relationsdatabaser (vilket är vad vi kommer använda i den här kursen) och dokument/nod-baserade (berörs inte i den här guiden).
+Andra ord som används för att skilja på dessa två typer av databaser är SQL (relationella) och NoSQL (dokument/nod-baserade).</p>
+</div>
+<div class="paragraph">
+<p>Ordet "relation" är taget från matematiska begreppet "relation" - som betyder just tabell.</p>
+</div>
+<div class="paragraph">
+<p>Relationsdatabaser bygger på <a href="https://en.wikipedia.org/wiki/Relational_algebra">relationsalgebra</a>. Som tur är behöver man inte förstå all bakomliggande teori för att kommunicera med en databashanterare.</p>
+</div>
+<div class="paragraph">
+<p>Det finns flera olika databashanterare för relationsdatabaser, t.ex <a href="https://www.sqlite.org/">SQLite</a>, <a href="https://www.mysql.com/">MySQL</a>, <a href="https://mariadb.org/">MariaDB</a>, <a href="https://www.postgresql.org/">PostgreSQL</a>, <a href="https://www.oracle.com/database/index.html">Oracle Database</a>, <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2016">Microsoft SQL Server</a>.</p>
+</div>
+<div class="paragraph">
+<p>I stort sett alla applikationer använder i någon grad en databas - t.ex. lagrar webbläsare sin historik, chattprogram sina meddelanden och schoolsoft dina betyg i databaser.</p>
+</div>
+<div class="paragraph">
+<p>Världens överlägset mest använda databashanterare (och den vi kommer använda i större delen av kursen) är SQLite, som finns installerad på alla iOS-enheter, Android-enheter, och används i både Chrome och Firefox.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_varför_använda_en_relationsdatabas">1.3. Varför använda en relationsdatabas</h3>
+<div class="paragraph">
+<p>Det finns flera anledningar till att använda en (relations)databas:</p>
+</div>
+<div class="sect3">
+<h4 id="_normalisering_av_data">1.3.1. Normalisering av data</h4>
+<div class="paragraph">
+<p>Normalisering, eller normaliserad data innebär att man minskar förekomsten av redundant data.</p>
+</div>
+<div class="paragraph">
+<p>Redundant data innebär att samma data kan finnas på flera ställen samtidigt. Detta tar mer plats än om datan finns på enbart ett ställe.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_konsistent_data">1.3.2. Konsistent data</h4>
+<div class="paragraph">
+<p>Om samma data finns på flera ställen är det stor risk att datan blir <em>inkonsistent</em>, det vill säga, beroende på vilket ställe man kollar kan man få olika svar.</p>
+</div>
+<div class="paragraph">
+<p>Genom normalisering kan man förhindra eller minska risken för inkonsistent data.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_enkel_delning_av_data">1.3.3. Enkel delning av data</h4>
+<div class="paragraph">
+<p>Flera applikationer kan använda samma databas, och därmed använda samma data.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_en_väldokumenterad_standard_för_informationsutbyte">1.3.4. En väldokumenterad standard för informationsutbyte</h4>
+<div class="paragraph">
+<p>SQL är ett väldokumenterat språk som väldigt många utvecklare behärskar. Det är därför lätt för nya utvecklare att sätta sig in i ett nytt system.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_säkerhet_och_integritet">1.3.5. Säkerhet och integritet</h4>
+<div class="paragraph">
+<p>De flesta databashanterare innehåller avancerade kontroller av vem som har rättighet att utföra olika operationer i databasen.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_validering_av_data">1.3.6. Validering av data</h4>
+<div class="paragraph">
+<p>I de flesta databashanterare kan man skriva regler för hur rader och kolumner i tabeller ska se ut.</p>
+</div>
+<div class="paragraph">
+<p>T.ex kan man bestämma att alla rader i användartabellen måste innhålla ett användarnamn, och att varje användarnamn måste vara unikt.
+Databashanteraren gör det i så fall omöjligt att skriva rader i användatabellen som saknar användarnamn, eller där användarnamnet redan finns på någon annan rad i tabellen.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_transaktionssäkerhet">1.3.7. Transaktionssäkerhet</h4>
+<div class="paragraph">
+<p>Ofta behöver man utföra operationer i flera, av varandra beroende steg.</p>
+</div>
+<div class="paragraph">
+<p>Säg till exempel att du skriver mjukvara för att hålla koll på bankkonton, och du vill föra över pengar från ett konto till ett annat konto.
+Då måste du:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ta bort pengarna från konto 1.</p>
+</li>
+<li>
+<p>Föra in pengerna på konto 2.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Alternativt</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Föra in pengarna på konto 2.</p>
+</li>
+<li>
+<p>Ta bort pengarna från konto 1.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Säg att något går fel i steg 2 - kanske har någon angett ett felaktigt kontonummer, eller under tiden som instruktionerna utförs har konto 2 tagits bort.
+I ett system utan transaktionssäkerhet skulle pengarna bara ha försvunnit i tomma intet (eller i alternativ 2, skapats från tomma intet)</p>
+</div>
+<div class="paragraph">
+<p>I de flesta databashanterare finns därför <code>transaktioner</code> - om man lägger sina instruktioner i en transaktion kollar databasen att samtliga instruktioner i transaktionen går att utföra innan de faktiskt utförs.
+Skulle felet i steg 2 hända i en transaktion skulle steg 1 aldrig utföras - och pengarna skulle finnas kvar.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tabeller_och_relationer">2. Tabeller och relationer</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>En relationsdatabas består av en eller flera <code>tabeller</code>. Varje tabell har ett namn, och består av <code>rader</code> och <code>kolumner</code>.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 45%;">
+<caption class="title">Table 1. Exempel på en tabell för att hålla koll på böcker</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 60%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="3"><p class="tableblock"><strong>books</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>title</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>page_count</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Catch 22'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">464</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'To Kill a Mockingbird'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">336</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'1984'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">328</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'The Stranger'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">123</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Tabellen ovan har namnet <code>books</code>, och har 4 rader och 3 kolumner.</p>
+</div>
+<div class="sect2">
+<h3 id="_tupler">2.1. Tupler</h3>
+<div class="paragraph">
+<p>Varje rad i tabellen kallas för en <code>tupel</code> och beskriver en <code>post</code> i tabellen. I vårt exempel lagrar varje tupel information om en bok.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_attribut">2.2. Attribut</h3>
+<div class="paragraph">
+<p>Varje kolumn beskriver en egenskap, eller <code>attribut</code> för posten. I vårt fall är "id", "title" och "page_count" attribut.</p>
+</div>
+<div class="paragraph">
+<p>Attribut måste vara <code>atomära</code>, det vill säga i varje "cell" eller "fält" får det maximalt finnas ett värde - man kan t.ex inte lagra flera titlar i en och samma cell.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_primärnyckel">2.3. Primärnyckel</h3>
+<div class="paragraph">
+<p>Varje rad i en tabell måste vara unik, det vill säga, i varje tabell får det inte förekomma två rader där samtliga kolumner är identiska (detta är en följd av relationsalgebran).</p>
+</div>
+<div class="paragraph">
+<p>Detta löses genom att varje tabell har en attribut som kallas för <code>primärnyckel</code> eller <code>primary key</code>. I tabellen ovan är det attributet med namnet <code>id</code> som är primärnyckel</p>
+</div>
+<div class="paragraph">
+<p>När man skapar tabellen talar man om vilken av attributen som kommer vara primärnyckeln.</p>
+</div>
+<div class="paragraph">
+<p>Detta innebär att om någon annan skulle skriva en bok som heter the stranger, och som råkar ha 123 sidor även den kommer raden fortfarande vara unik, eftersom den kommer få en unikt värde på primärnyckeln</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 45%;">
+<caption class="title">Table 2. Varje tupel är fortfarande unik, trots att det finns två böcker med samma titel och sidantal.</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 60%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="3"><p class="tableblock"><strong>books</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>title</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>page_count</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Catch 22'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">464</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'To Kill a Mockingbird'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">336</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'1984'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">328</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'The Stranger'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">123</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'The Stranger'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">123</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Det är databashanterarens roll att kontrollera att varje tupel är unik.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Namngivning av primärnyckeln</div>
+<div class="paragraph">
+<p>I den här boken kommer vi:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>alltid</strong> använda namnet <strong>id</strong> för primärnyckeln, men primärnyckeln <em>kan</em> heta vad som helst.</p>
+</li>
+<li>
+<p><strong>alltid</strong> använda <strong>automatiskt inkrementerande heltal</strong> för primärnyckeln, men primärnyckeln <em>kan</em> vara vad som helst.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_normalisering">2.4. Normalisering</h3>
+<div class="paragraph">
+<p>Säg att vi vill även vill lagra författarens namn. Vi lägger därför till en kolumn:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>books</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>title</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>page_count</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>author</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Catch 22'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">464</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Joseph Heller'</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'To Kill a Mockingbird'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">336</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Harper Lee'</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'1984'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">328</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'George Orwell''</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'The Stranger'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Albert Camus'</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Inga problem, men säg att vi även vill lagra författarens nationalitet, födelseår och skostorlek.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 60%;">
+<colgroup>
+<col style="width: 8.3333%;">
+<col style="width: 25%;">
+<col style="width: 8.3333%;">
+<col style="width: 25%;">
+<col style="width: 16.6666%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3335%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="7"><p class="tableblock"><strong>books</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>title</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>page_count</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>author</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>nationality</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>birth_year</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>shoe_size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Catch 22'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">464</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Joseph Heller'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'American'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1923</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">42</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'To Kill a Mockingbird'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">336</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Harper Lee'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'American'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1926</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">36</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'1984'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">328</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'George Orwell'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'English'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1903</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">41</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'The Stranger'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Albert Camus'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'French'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1913</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">44</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Nu börjar tabellen se lite konstig ut: Tabellen heter "books" men innehåller attributen "nationality", "birth_year" och "shoe_size". De låter inte som attribut (egenskaper) en bok har. Vi kan förstås lägga in "author_" framför varje attribut som är kopplat till en författare snarare än en bok:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 60%;">
+<colgroup>
+<col style="width: 8.3333%;">
+<col style="width: 25%;">
+<col style="width: 8.3333%;">
+<col style="width: 25%;">
+<col style="width: 16.6666%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3335%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="7"><p class="tableblock"><strong>books</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>title</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>page_count</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>author</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>author_nationality</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>author_birth_year</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>author_shoe_size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Catch 22'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">464</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Joseph Heller'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'American'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1923</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">42</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'To Kill a Mockingbird'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">336</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Harper Lee'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'American'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1926</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">36</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'1984'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">328</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'George Orwell'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'English'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1903</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">41</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'The Stranger'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Albert Camus'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'French'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1913</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">44</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Det känns bättre, men det är fortfarande konstigt att om man vill veta vilken skostorlek en författare har så ska man kolla i boktabellen. Men vad händer när vi börjar lagra flera böcker för en författare?</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 60%;">
+<colgroup>
+<col style="width: 8.3333%;">
+<col style="width: 25%;">
+<col style="width: 8.3333%;">
+<col style="width: 25%;">
+<col style="width: 16.6666%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3335%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="7"><p class="tableblock"><strong>books</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>title</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>page_count</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>author</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>author_nationality</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>author_birth_year</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>author_shoe_size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Catch 22'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">464</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Joseph Heller'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'American'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1923</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">42</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'To Kill a Mockingbird'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">336</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Harper Lee'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'American'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1926</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">36</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'1984'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">328</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'George Orwell'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'English'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1903</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">41</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'The Stranger'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Albert Camus'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'French'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1913</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">44</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Closing Time'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">382</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Joseph Heller'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'American'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1923</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">42</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Animal Farm'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">218</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'George Orwell'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'English'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1903</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">41</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'The Plague  '</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">312</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Albert Camus'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'French'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1913</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">44</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Coming Up for Air'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">393</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'George Orwell'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'English'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1903</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">41</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Nu förekommer varje författares nationalitet, födelseår och skostorlek flera gånger - vi har med andra ord redundant data i databasen.</p>
+</div>
+<div class="paragraph">
+<p>Vi vill i största möjliga utsträckning undvika redundant data, och behöver därför <code>normalisera</code> datan, genom att dela upp datan i <strong>två</strong> tabeller - <strong>books</strong> och <strong>authors</strong></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 22.2222%;">
+<col style="width: 22.2222%;">
+<col style="width: 11.1112%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="5"><p class="tableblock"><strong>authors</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>nationality</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>birth_year</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>shoe_size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Joseph Heller'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'American'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1923</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">42</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Harper Lee'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'American'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1926</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">36</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'George Orwell'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'English'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1903</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">41</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Albert Camus'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'French'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1913</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">44</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all" style="width: 45%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 60%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="3"><p class="tableblock"><strong>books</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>title</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>page_count</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Catch 22'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">464</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'To Kill a Mockingbird'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">336</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'1984'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">328</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'The Stranger'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">123</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Closing Time'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">382</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Animal Farm'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">218</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'The Plague  '</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">312</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Coming Up for Air'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">393</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Nu har vi normaliserat datan; data om författare i en tabell, och data om böcker i en annan. Ingen data är duplicerad. Dessvärre vet vi inte längre vilken författare som skrivit vilken bok.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_relationer">2.5. Relationer</h3>
+<div class="paragraph">
+<p>För att knyta samman två tabeller behöver vi skapa en <code>relation</code>, det vill säga, en koppling, mellan dem.</p>
+</div>
+<div class="paragraph">
+<p>I exemplet med böcker och författare behöver vi skapa en <code>en-till-många-relation</code> mellan authors och books - <em>en</em> för fattare kan ha skrivit <em>många</em> böcker (men en bok kan bara ha en författare).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_främmande_nyckel">2.6. Främmande nyckel</h3>
+<div class="paragraph">
+<p>För att skapa en relation mellan två tabeller använder man en <code>främmande nyckel</code>. Man skapar en främmande nyckel genom att kopiera in värdet från  <code>primärnyckeln</code> i <code>en-änden</code> av relationen i en ny kolumn i <code>många-änden</code> av relationen.</p>
+</div>
+<div class="paragraph">
+<p>I vårt fall innebär det att vi ska lägga till primärnyckeln från <strong>author</strong>-tabellen i <strong>books</strong>-tabellen (en för fattare kan ha skrivit flera böcker).</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 40%;">
+<colgroup>
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>books</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>title</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>page_count</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>author_id</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Catch 22'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">464</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'To Kill a Mockingbird'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">336</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'1984'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">328</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'The Stranger'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Closing Time'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">382</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Animal Farm'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">218</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'The Plague  '</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">312</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Coming Up for Air'</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">393</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Namngivning av den främmande nyckeln</div>
+<div class="paragraph">
+<p>Den främmande nyckelns kolumn kan heta precis vad som helst, men i den här boken kommer den främmande nyckelns kolumn-namn <strong>alltid</strong> döpas enligt följande: <strong>namnet på en-ändens tabellnamn <em>i singular</em></strong> följt av ett understreck och sen <strong>id</strong> (<strong>author_id</strong>)</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_Övningar">2.7. Övningar</h3>
+<div class="sect3">
+<h4 id="_datorregister">2.7.1. Datorregister</h4>
+<div class="paragraph">
+<p>Alla elever på IT-Gymnasiet Göteborg får låna en dator. Det finns ett inventeringssystem med en databas där alla elever, datorer och lån finns registrerade.</p>
+</div>
+<div class="paragraph">
+<p>Systemet håller koll på:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Datorers modell och serienummer</p>
+</li>
+<li>
+<p>Elevers namn och personnummer</p>
+</li>
+<li>
+<p>Vilken elev som har lånat vilken dator</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Rita upp de tabeller och relationer (inklusive främmande nycklar) som databasen behöver. Fyll i ett par rader i varje tabell.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_matkort">2.7.2. Matkort</h4>
+<div class="paragraph">
+<p>I årskurs tre får eleverna på IT-Gymnasiet Göteborg matkort. Företaget som skapar och säljer matkorten till skolorna har (förhoppningsvis) en databas som håller koll på skolor, kort, och låntagare.</p>
+</div>
+<div class="paragraph">
+<p>De behöver kunna hålla kolla på:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Skolors adress och kontaktperson (så de kan skicka ut korten till rätt adress).</p>
+</li>
+<li>
+<p>Korts serienummer och pinkod</p>
+</li>
+<li>
+<p>Elevers namn och klass</p>
+</li>
+<li>
+<p>Vilket kort som tillhör vilken elev</p>
+</li>
+<li>
+<p>Vilken skola och klass en elev går i</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Rita upp de tabeller och relationer (inklusive främmande nycklar) som databasen behöver. Fyll i ett par rader i varje tabell.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_er_diagram">3. ER-diagram</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>För att snabbare kunna modellera databaser finns Entity Relationship Diagrams (ER-diagram).</p>
+</div>
+<div class="paragraph">
+<p>ER-diagram illustrerar en databas logiska uppbyggnad, det vill säga vilka tabeller, attribut och relationer som finns.</p>
+</div>
+<div class="sect2">
+<h3 id="_entitet">3.1. Entitet</h3>
+<div class="paragraph">
+<p>Entiteter representerar tabeller i databasen. Entiteter ritas som rektanglar, med namnet (i singular) i mitten.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/03/entities.png" alt="entities">
+</div>
+<div class="title">Figure 1. Två entiteter</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_attribut_2">3.2. Attribut</h3>
+<div class="paragraph">
+<p>Attribut representerar ett attribut på en tabell. Attribut ritas som en ovalel, med namnet i mitten. Alla attribut tillhör någon entitet,
+och man drar ett streck mellan entiteten och attributet för att visa vilken entitet ett attribut tillhör.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/03/entities_with_attributes.png" alt="entities with attributes">
+</div>
+<div class="title">Figure 2. Två entiteter med attribut</div>
+</div>
+<div class="paragraph">
+<p><code>Primärnycklarna</code> är alltid understrukna.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Främmande nycklar</strong></p>
+</div>
+<div class="paragraph">
+<p>Främmande nycklar ska aldrig ritas ut i ER-diagrammet, deras placering framgår av relationerna (se nästa rubrik)</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_relation">3.3. Relation</h3>
+<div class="paragraph">
+<p>Relationer visar på kopplingar mellan två entiteter. Relationer ritas som romber. I mitten av romben står ett ett eller flera ord som beskriver relationen (oftast från ena entitetens perspektiv).
+Varje relation är kopplad med streck till de ingående entiteterna.
+I varje ände av strecket framgår relationens <code>kardinalitet</code>, som låter oss förstå om det t.ex. är en en-till-många-relation.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/03/entities_with_attributes_and_relations.png" alt="entities with attributes and relations">
+</div>
+<div class="title">Figure 3. Två entiteter med attribut och relation</div>
+</div>
+<div class="paragraph">
+<p>I exemplet ovan kan man utläsa att <strong>en</strong> författare kan skriva <strong>många</strong> (men minst 1) böcker,
+men en bok kan bara ha en författare. Det är med andra ord en en-till-många-relation.</p>
+</div>
+<div class="paragraph">
+<p>Relationen är i exemplet ovan skrivet från författarens perspektiv ("wrote"), men skulle lika gärna kunna vara skriven från en boks perspektiv (t.ex "written by" eller "belongs to").</p>
+</div>
+<div class="paragraph">
+<p>Från relationens kardinalitet kan vi utläsa att det i databasens books-tabell ska skapas en främmande nyckel med namnet "author_id"</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_databasmodellering_med_er_diagram">4. Databasmodellering med ER-diagram</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I det här kapitlet ska vi med hjälp av ER-diagram och ett par frågor modellera en virtuell bokhylleapplikation.</p>
+</div>
+<div class="paragraph">
+<p>Den virtuella bokhyllan ska ska hålla koll på en användares alla titlar.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>En titel kan tillhöra flera olika genres (t.ex. "Fantasy" och "Science Fiction").</p>
+</li>
+<li>
+<p>En titel har ett namn, ett sidantal, och är skriven av en författare.</p>
+</li>
+<li>
+<p>En författare kan ha skrivit flera titlar.</p>
+</li>
+<li>
+<p>En genre kan innehålla flera titlar.</p>
+</li>
+<li>
+<p>Användaren ska kunna</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Se alla titlar i sin bokhylla,</p>
+</li>
+<li>
+<p>Skriva anteckningar om en titel,</p>
+</li>
+<li>
+<p>Söka bland titlar i sin bokhylla</p>
+</li>
+<li>
+<p>Se sina anteckningar om en specifik titel.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_identifiera_substantiv">4.1. Identifiera substantiv</h3>
+<div class="paragraph">
+<p>Ett trick man kan använda för att identifiera sina entiteter är att leta efter substantiv i beskrivningen av sin problemdomän.</p>
+</div>
+<div class="paragraph">
+<p>Beskrivningen ovan innehåller följande substantiv: "bokhylla" "användare", "titel", "genre", "namn", "sidantal", "författare", "anteckning".</p>
+</div>
+<div class="paragraph">
+<p>Vissa substantiv kommer bli våra entiteter, andra kommer att bli attribut våra entiteter har, och vissa kan vi ignorera.</p>
+</div>
+<div class="paragraph">
+<p>I vårt fall kan vi ignorera substantivet "bokhylla", eftersom hela applikationen är "bokhyllan". I vårt fall kanske hela applikationen skulle kunna heta t.ex "Bookshelf"</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_frågor_för_att_skilja_entiteter_från_attribut">4.2. Frågor för att skilja entiteter från attribut</h3>
+<div class="paragraph">
+<p>Första steget är att räkna ut vilka av ens substantiv som blir entiteter (och, i förlängningen, tabeller i databasen), och vilka som blir attribut på entiteterna.</p>
+</div>
+<div class="paragraph">
+<p>Frågor man kan ställa för att klura ut vilka substantiv som bör bli egna entiteter är:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Har substantivet flera saker som skulle kunna vara attribut på det?</p>
+</li>
+<li>
+<p>Har substantivet verb kopplade till sig (utöver skapa/ta bort/uppdatera)?</p>
+</li>
+<li>
+<p>Om substantivet är ett attribut på en (eller flera) annan entitet, skulle det i så fall förekomma på flera rader i den entitetens tabell?</p>
+</li>
+<li>
+<p>Om substantivet är ett attribut på en (eller flera) annan entitet, skulle varje rad i den entitetens tabell kunna ha flera av substantivet?</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Om svaret är "Ja" på en eller flera av dessa frågor är det troligt att det ska bli en entitet.</p>
+</div>
+<div class="paragraph">
+<p>Vi går igenom Bokylleapplikationens substantiv och ställer frågorna till dem.</p>
+</div>
+<div class="sect3">
+<h4 id="_användare">4.2.1. Användare</h4>
+<div class="sect4">
+<h5 id="_har_användare_flera_saker_som_skulle_kunna_vara_attribut">Har användare flera saker som skulle kunna vara attribut?</h5>
+<div class="paragraph">
+<p>Ja, användare har (antagligen) email, användarnamn, lösenord och information om när hen senast var inloggad.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_har_användare_verb_kopplade_till_sig">Har användare verb kopplade till sig?</h5>
+<div class="paragraph">
+<p>Ja, användare kan logga in/ut, och skriva anteckningar. En användare kan antagligen också lägga till/ta bort böcker.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_om_användare_var_attribut_på_en_annan_entitet_skulle_de_i_så_fall_förekomma_flera_i_den_entitetens_tabell">Om användare var attribut på en annan entitet, skulle de i så fall förekomma flera  i den entitetens tabell?</h5>
+<div class="paragraph">
+<p>Ja, om användare var attribut på t.ex titel-entiteten skulle de förekomma flera gånger i titel-tabellen, eftersom en användare kan äga flera titlar.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Table 3. Title-tabell där samma användardata dupliceras på olika rader</caption>
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">name</th>
+<th class="tableblock halign-left valign-top">isbn</th>
+<th class="tableblock halign-left valign-top">user_name</th>
+<th class="tableblock halign-left valign-top">user_pwd</th>
+<th class="tableblock halign-left valign-top">user_last_login</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grill"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2017-08-01</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"BBQ Book"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grill"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2017-08-01</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Würstbuch"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">345</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Korv"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2017-09-23</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Kokboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">456</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Korv"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2017-09-23</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Title-tabellen innehåller duplicerad data om användaren (rad 1 &amp; 2 och rad 3 &amp; 4), vilket vi vill undvika.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_om_användare_var_attribut_på_en_annan_entitet_skulle_det_i_så_fall_kunna_finnas_flera_användare_på_varje_rad_i_den_entitetens_tabell">Om användare var attribut på en annan entitet, skulle det i så fall kunna finnas flera användare på varje rad i den entitetens tabell?</h5>
+<div class="paragraph">
+<p>Ja, om användare var attribut på t.ex. en titel skulle varje titel kunna ha flera användare, eftersom flera användare kan äga samma titel.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Table 4. Title-tabell där varje rad innehåller data om flera användare</caption>
+<colgroup>
+<col style="width: 4.3478%;">
+<col style="width: 8.6956%;">
+<col style="width: 4.3478%;">
+<col style="width: 26.0869%;">
+<col style="width: 13.0434%;">
+<col style="width: 43.4785%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">name</th>
+<th class="tableblock halign-left valign-top">isbn</th>
+<th class="tableblock halign-left valign-top">user_names</th>
+<th class="tableblock halign-left valign-top">user_pwds</th>
+<th class="tableblock halign-left valign-top">user_last_logins</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grill", "Korv", &#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;, &#8230;&#8203;, &#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2017-08-01, 2017-09-23, &#8230;&#8203;</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>En cell i en tabell får endast innehålla ett värde, så det här fungerar inte.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_slutsats_användare">Slutsats Användare:</h5>
+<div class="paragraph">
+<p>Samtliga frågor har besvarats med "Ja". Användare bör därmed vara en egen entitet.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_titel">4.2.2. Titel</h4>
+<div class="sect4">
+<h5 id="_har_titlar_flera_saker_som_skulle_kunna_vara_attribut">Har titlar flera saker som skulle kunna vara attribut?</h5>
+<div class="paragraph">
+<p>Ja, en titel har namn, isbn, författare, utgivningsår, genres, sidantal, anteckningar</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_har_titlar_verb_kopplade_till_sig">Har titlar verb kopplade till sig?</h5>
+<div class="paragraph">
+<p>Nej, inte utöver skapa/ta bort/uppdatera</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_om_en_titel_var_attribut_på_en_annan_entitet_skulle_de_i_så_fall_förekomma_på_flera_rader_i_den_entitetens_tabell">Om en titel var attribut på en annan entitet, skulle de i så fall förekomma på flera rader i den entitetens tabell?</h5>
+<div class="paragraph">
+<p>Ja, om titlar var attribut på användare så skulle varje titel förekomma på flera rader, eftersom flera användare kan ha samma titel:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Table 5. User-tabell där samma titel-data dupliceras på olika rader</caption>
+<colgroup>
+<col style="width: 4.3478%;">
+<col style="width: 8.6956%;">
+<col style="width: 4.3478%;">
+<col style="width: 26.0869%;">
+<col style="width: 13.0434%;">
+<col style="width: 43.4785%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">username</th>
+<th class="tableblock halign-left valign-top">pwd</th>
+<th class="tableblock halign-left valign-top">title_name</th>
+<th class="tableblock halign-left valign-top">title_isbn</th>
+<th class="tableblock halign-left valign-top">title_pagecount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grill"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1337</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Korv"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1337</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Senap"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"BBQ Book"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Ketchup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1337</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Grillbokens information är dublicerad i tabellen, vilket vi vill undvika.</p>
+</div>
+<div class="paragraph">
+<p>Om titlar var attribut på författare skulle det kunna fungera (men se fråga 4 nedan):</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Table 6. Author-tabell med titel som attribut (ingen duplicering)</caption>
+<colgroup>
+<col style="width: 8.3333%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">name</th>
+<th class="tableblock halign-left valign-top">country</th>
+<th class="tableblock halign-left valign-top">title_name</th>
+<th class="tableblock halign-left valign-top">title_isbn</th>
+<th class="tableblock halign-left valign-top">title_pagecount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"F. Örfattare"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Sweden"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1337</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"A. Uthor"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Great Britain"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"BBQ Book"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"V. Erfasserin"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Germany"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Würstbuch"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">345</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7331</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_om_en_titel_var_ett_attribut_på_en_annan_entitet_skulle_de_i_så_fall_kunna_förekomma_flera_gånger_på_en_rad">Om en titel var ett attribut på en annan entitet, skulle de i så fall kunna förekomma flera gånger på en rad?</h5>
+<div class="paragraph">
+<p>Ja, om en titel var ett attribut på författare eller användare skulle varje författares eller användares rad behöva ha flera titlar.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Table 7. Author-tabell där varje rad innehåller data om flera titlar</caption>
+<colgroup>
+<col style="width: 8.3333%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">name</th>
+<th class="tableblock halign-left valign-top">country</th>
+<th class="tableblock halign-left valign-top">title_names</th>
+<th class="tableblock halign-left valign-top">title_isbns</th>
+<th class="tableblock halign-left valign-top">title_pagecounts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"F. Örfattare"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Sweden"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken", "Kokboken", &#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123, 456, &#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1337, 21, &#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"A. Uthor"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Great Britain"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"BBQ Book" , "Cookbook", &#8230;&#8203;.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">234, 567, &#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42, 512, &#8230;&#8203;</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Table 8. User-tabell där varje rad innehåller data om flera titlar.</caption>
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 45.4545%;">
+<col style="width: 18.1818%;">
+<col style="width: 9.091%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">username</th>
+<th class="tableblock halign-left valign-top">pwd</th>
+<th class="tableblock halign-left valign-top">title_names</th>
+<th class="tableblock halign-left valign-top">title_isbns</th>
+<th class="tableblock halign-left valign-top">title_pagecounts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grill"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken", "Kokboken", &#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123, 456, &#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1337, 21, &#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Korv"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"BBQ Book" , "Cookbook", &#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">234, 567, &#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42, 512, &#8230;&#8203;</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Båda tabellerna ovan innehåller celler med mer än ett värde, vilket inte är tillåtet.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_slutsats">Slutsats</h5>
+<div class="paragraph">
+<p>Flera av frågorna har besvarats med "Ja". Titel bör vara en egen entitet</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_genre">4.2.3. Genre</h4>
+<div class="sect4">
+<h5 id="_har_genres_flera_saker_som_skulle_kunna_vara_attribut">Har genres flera saker som skulle kunna vara attribut?</h5>
+<div class="paragraph">
+<p>Nja, en genre har antagligen bara ett attribut: namn.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_har_genres_verb_kopplade_till_sig">Har genres verb kopplade till sig?</h5>
+<div class="paragraph">
+<p>Nej, inte utöver skapa/ta bort/upddatera.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_om_en_genre_var_attribut_på_en_annan_entitet_skulle_de_i_så_fall_förekomma_på_flera_rader_i_den_entitetens_tabell">Om en genre var attribut på en annan entitet, skulle de i så fall förekomma på flera rader i den entitetens tabell?</h5>
+<div class="paragraph">
+<p>Ja, om genres var entiteter på t.ex. titlar skulle varje genre förekomma flera gånger i tabellen, eftersom en genre kan ha många titlar</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Table 9. Title-tabell där samma genre-data dupliceras på olika rader</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6669%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">name</th>
+<th class="tableblock halign-left valign-top">isbn</th>
+<th class="tableblock halign-left valign-top">pagecount</th>
+<th class="tableblock halign-left valign-top">genre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1337</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillning"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"BBQ Book"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillning"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Würstbuch"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">345</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7331</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Korv"</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>I tabellen ovan dupliceras datan om genre, men eftersom det enbart är ett enstaka fält, skulle det kunna vara OK.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_om_en_genre_var_attribut_på_en_annan_entitet_skulle_de_i_så_fall_förekomma_flera_gånger_på_samma_rad">Om en genre var attribut på en annan entitet, skulle de i så fall förekomma flera gånger på samma rad?</h5>
+<div class="paragraph">
+<p>Ja, om genre var ett attribut på en titel skulle genren förekomma flera gånger på varje titels rad, eftersom varje titel kan ha flera genres</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Table 10. Titel-tabell där varje rad innehåller information om flera genres</caption>
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 28.5714%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 28.5715%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">name</th>
+<th class="tableblock halign-left valign-top">isbn</th>
+<th class="tableblock halign-left valign-top">pagecount</th>
+<th class="tableblock halign-left valign-top">genres</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1337</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Matlagning", "Grillning"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"BBQ Book"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Matlagning", "Grillning"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Würstbuch"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">345</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7331</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Matlagning", "Korv"</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>En cell i en tabell får endast innehålla ett värde, så det här fungerar inte.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_slutsats_2">Slutsats:</h5>
+<div class="paragraph">
+<p>Flera av frågorna har besvarats med "Ja". Genre bör vara en egen entitet</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_namn">4.2.4. Namn</h4>
+<div class="sect4">
+<h5 id="_har_namn_flera_saker_som_skulle_kunna_vara_attribut">Har namn flera saker som skulle kunna vara attribut?</h5>
+<div class="paragraph">
+<p>Nej (eventuellt skulle en titel kunna ha olika namn på olika språk).</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_har_namn_verb_kopplade_till_sig">Har namn verb kopplade till sig?</h5>
+<div class="paragraph">
+<p>Nej, inte utöver skapa/ta bort/uppdatera</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_om_namn_var_attribut_på_en_annan_entitet_skulle_de_i_så_fall_förekomma_på_flera_rader_i_den_entitetens_tabell">Om namn var attribut på en annan entitet, skulle de i så fall förekomma på flera rader i den entitetens tabell?</h5>
+<div class="paragraph">
+<p>Nej (teoretiskt sett kan det finnas titlar med samma namn, men det är väldigt ovanligt).</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_om_namn_var_attribut_på_en_annan_entitet_skulle_de_i_så_fall_förekomma_flera_gånger_på_samma_rad">Om namn var attribut på en annan entitet, skulle de i så fall förekomma flera gånger på samma rad?</h5>
+<div class="paragraph">
+<p>Nej. En titel har bara ett namn (återigen: eventuellt kan namnet kan finnas på flera språk).</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_slutsats_3">Slutsats:</h5>
+<div class="paragraph">
+<p>Samtliga fyra frågor besvarades med "Nej". Namn bör vara ett attribut (på titel).</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sidantal">4.2.5. Sidantal</h4>
+<div class="sect4">
+<h5 id="_har_sidantal_flera_saker_som_skulle_kunna_vara_attribut">Har sidantal flera saker som skulle kunna vara attribut?</h5>
+<div class="paragraph">
+<p>Nej.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_har_sidantal_verb_kopplade_till_sig">Har sidantal verb kopplade till sig?</h5>
+<div class="paragraph">
+<p>Nej, inte utöver skapa/ta bort/uppdatera.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_om_sidantal_var_attribut_på_en_annan_entitet_skulle_de_i_så_fall_förekomma_på_flera_rader_i_den_entitetens_tabell">Om sidantal var attribut på en annan entitet, skulle de i så fall förekomma på flera rader i den entitetens tabell?</h5>
+<div class="paragraph">
+<p>Nja, det finns antagligen flera böcker som har samma sidantal. Men det skulle inte innebära någon vidare duplikation av data.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_om_sidantal_var_attribut_på_en_annan_entitet_skulle_de_i_så_fall_förekomma_flera_gånger_på_samma_rad">Om sidantal var attribut på en annan entitet, skulle de i så fall förekomma flera gånger på samma rad?</h5>
+<div class="paragraph">
+<p>Nej. En titel har bara ett sidantal (olika utgåvor av en bok kanske har olika sidantal dock).</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_slutsats_4">Slutsats:</h5>
+<div class="paragraph">
+<p>Ingen av frågorna besvarades med "Ja". Sidantal bör vara ett attribut (på titel).</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_författare">4.2.6. Författare</h4>
+<div class="sect4">
+<h5 id="_har_författare_flera_saker_som_skulle_kunna_vara_attribut">Har författare flera saker som skulle kunna vara attribut?</h5>
+<div class="paragraph">
+<p>Ja, förnamn, efternamn, nationalitet, födelseår.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_har_författare_verb_kopplade_till_sig">Har författare verb kopplade till sig?</h5>
+<div class="paragraph">
+<p>Nej, inte utöver skapa/ta bort/uppdatera.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_om_författare_var_attribut_på_en_annan_entitet_skulle_de_i_så_fall_förekomma_på_flera_rader_i_den_entitetens_tabell">Om författare var attribut på en annan entitet, skulle de i så fall förekomma på flera rader i den entitetens tabell?</h5>
+<div class="paragraph">
+<p>Ja, om författare var ett attribut på en titel skulle författaren förekomma på flera rader i titeltabellen eftersom författaren kan skriva flera böcker.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Table 11. Title-tabell där samma författar-data dupliceras på flera rader</caption>
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 22.2222%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 22.2222%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">name</th>
+<th class="tableblock halign-left valign-top">isbn</th>
+<th class="tableblock halign-left valign-top">pagecount</th>
+<th class="tableblock halign-left valign-top">author_name</th>
+<th class="tableblock halign-left valign-top">author_country</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1337</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"F. Örfattare"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Sweden"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"BBQ Book"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"A. Uthor"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Great Britain"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Würstbuch"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">345</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7331</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"V. Erfatterin"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Germany""</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Kokboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">456</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">512</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"F. Örfattare"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Sweden"</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>I tabellen ovan dupliceras datan om varje författare, vilket vi vill undvika.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_om_författare_var_attribut_på_en_annan_entitet_skulle_de_i_så_fall_förekomma_flera_gånger_på_samma_rad">Om författare var attribut på en annan entitet, skulle de i så fall förekomma flera gånger på samma rad?</h5>
+<div class="paragraph">
+<p>Nja. Författare skulle kunnna vara ett attribut på en titel, eftersom en titel bara har en författare (i vår applikation, men det kan vara önskvärt att bygga ut funktionalitet för att tillåta flera författare på en bok - det är inte ovanligt att författare samarbetar).</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Table 12. Title-tabell där samma författar-data dupliceras på olika rader</caption>
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 22.2222%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 22.2222%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">name</th>
+<th class="tableblock halign-left valign-top">isbn</th>
+<th class="tableblock halign-left valign-top">pagecount</th>
+<th class="tableblock halign-left valign-top">author_name</th>
+<th class="tableblock halign-left valign-top">author_country</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1337</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"F. Örfattare"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Sweden"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"BBQ Book"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"A. Uthor"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Great Britain"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Würstbuch"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">345</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7331</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"V. Erfatterin"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Germany""</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>I tabellen ovan finns det bara en författare per rad, vilket skulle kunna vara OK (men se fråga 3).</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_slutsats_5">Slutsats:</h5>
+<div class="paragraph">
+<p>Flera av frågorna har besvarats med "Ja". Författare bör vara en entitet</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_anteckning">4.2.7. Anteckning</h4>
+<div class="sect4">
+<h5 id="_har_anteckningar_flera_saker_som_skulle_kunna_vara_attribut">Har anteckningar flera saker som skulle kunna vara attribut?</h5>
+<div class="paragraph">
+<p>Ja, en användare. Och kanske en titel, och datum den är skapad?</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_har_anteckningar_verb_kopplade_till_sig">Har anteckningar verb kopplade till sig?</h5>
+<div class="paragraph">
+<p>Nej, inte utöver skapa/ta bort/uppdatera.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_om_anteckning_var_attribut_på_en_annan_entitet_skulle_de_i_så_fall_förekomma_på_flera_rader_i_den_entitetens_tabell">Om anteckning var attribut på en annan entitet, skulle de i så fall förekomma på flera rader i den entitetens tabell?</h5>
+<div class="paragraph">
+<p>Nej, om anteckning var ett attribut på användare eller titel skulle antagligen varje anteckning fortfarande vara unik (eventuella dubletter skulle vara ett sammanträffande).</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Table 13. Title-tabell med anteckning som attribut</caption>
+<colgroup>
+<col style="width: 7.1428%;">
+<col style="width: 14.2857%;">
+<col style="width: 7.1428%;">
+<col style="width: 7.1428%;">
+<col style="width: 57.1428%;">
+<col style="width: 7.1431%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">name</th>
+<th class="tableblock halign-left valign-top">isbn</th>
+<th class="tableblock halign-left valign-top">pagecount</th>
+<th class="tableblock halign-left valign-top">user_note</th>
+<th class="tableblock halign-left valign-top">user_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1337</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"This book smells funny"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"BBQ Book"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"This book has a weird taste"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Würstbuch"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">345</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7331</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"I like turtles!"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>I tabellen ovan dupliceras ingen data, men se fråga 4.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_om_anteckning_var_attribut_på_en_annan_entitet_skulle_de_i_så_fall_förekomma_flera_gånger_på_samma_rad">Om anteckning var attribut på en annan entitet, skulle de i så fall förekomma flera gånger på samma rad?</h5>
+<div class="paragraph">
+<p>Ja. En om anteckning är ett attribut på användare eller titel skulle varje rad i användar- eller titel-tabellen behöva innehålla flera anteckningar, eftersom både titlar och användare kan ha flera anteckningar.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Table 14. Title-tabell där varje rad innehåller data om flera anteckningar</caption>
+<colgroup>
+<col style="width: 6.25%;">
+<col style="width: 12.5%;">
+<col style="width: 6.25%;">
+<col style="width: 6.25%;">
+<col style="width: 62.5%;">
+<col style="width: 6.25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">name</th>
+<th class="tableblock halign-left valign-top">isbn</th>
+<th class="tableblock halign-left valign-top">pagecount</th>
+<th class="tableblock halign-left valign-top">user_notes</th>
+<th class="tableblock halign-left valign-top">user_ids</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1337</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"This book smells funny", "To Grill or not to Grill", &#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1, 2, &#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"BBQ Book"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"This book has a weird taste", "BBQ is Life!", &#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2, 3, &#8230;&#8203;</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Tabellen ovan innehåller flera anteckningar per cell, vilket inte är tillåtet.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_slutsats_6">Slutsats:</h5>
+<div class="paragraph">
+<p>Flera av frågorna har besvarats med "Ja". Anteckning bör vara en entitet.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_entiteter_med_exempelattribut">4.3. Entiteter med exempelattribut</h3>
+<div class="paragraph">
+<p>Baserat på slutsatserna kan vi skapa en skiss över våra entiteter med exempelattribut:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/04/entities.png" alt="Exempelentiteter med attribut">
+</div>
+<div class="title">Figure 4. Exempelentiteter med attribut</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_associationer_kardinalitet">4.4. Associationer &amp; Kardinalitet</h3>
+<div class="paragraph">
+<p>Nästa steg är att markera kardinaliteten mellan entiteterna.</p>
+</div>
+<div class="sect3">
+<h4 id="_en_till_många_relationer">4.4.1. En-till-många-relationer</h4>
+<div class="paragraph">
+<p>En titel kan ha många anteckningar, men varje anteckning tillhör bara en titel.</p>
+</div>
+<div class="paragraph">
+<p>I ER-diagrammet markeras en en-till-många-relation med hjälp av en etta ( 1 ) i "ett-änden" av relationen, och en asterisk ( * ) i många-änden av relationen:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/04/one-to-many.png" alt="En-till-många-relation mellan title och note">
+</div>
+<div class="title">Figure 5. En-till-många-relation mellan title och note</div>
+</div>
+<div class="paragraph">
+<p>I databasen kommer relationen skapas genom att det i många-ändens-tabell läggs till en främmande nyckel som innehåller en-ändens-primärnyckel.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<caption class="title">Table 15. Title-tabellen ("en-änden" i relationen).</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">name</th>
+<th class="tableblock halign-left valign-top">isbn</th>
+<th class="tableblock halign-left valign-top">pagecount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1337</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"BBQ Book"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Würstbuch"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">345</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7331</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all" style="width: 40%;">
+<caption class="title">Table 16. Note-tabellen ("många-änden" i relationen).</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 60%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">content</th>
+<th class="tableblock halign-left valign-top">title_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"This book tastes weird"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"This book smells funny"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"I Like turtles!"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Vissa entiteter, som t.ex anteckning, kommer vara i en-änden av flera relationer: En användare kan ha flera anteckningar, men en anteckning tillhör bara en användare.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/04/one-to-many2.png" alt="En-till-många-relationer mellan note och title och note och user">
+</div>
+<div class="title">Figure 6. En-till-många-relationer mellan note och title och note och user</div>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 30%;">
+<caption class="title">Table 17. User-tabell ("en-änden" av relationen)</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 50%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">username</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grill"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Korv"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Senap"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Ketchup"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd4</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>I databasen kommer notes-tabellen ha både "user_id" och "title_id":</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<caption class="title">Table 18. Note-tabellen ("många-änden" i <strong>två</strong> relationer).</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">content</th>
+<th class="tableblock halign-left valign-top">user_id</th>
+<th class="tableblock halign-left valign-top">title_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"This book tastes weird"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"This book smells funny"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"I Like turtles!"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_många_till_många_relationer">4.4.2. Många-till-många-relationer</h4>
+<div class="paragraph">
+<p>En titel kan tillhöra många genres, och varje genre kan ha flera titlar.</p>
+</div>
+<div class="paragraph">
+<p>I ER-diagrammet markeras en många-till-många-relation med hjälp av en asterisker ( * ) i båda-ändarna av relationen:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/04/many-to-many.png" alt="Många-till-många-relation mellan genre och titel">
+</div>
+<div class="title">Figure 7. Många-till-många-relation mellan genre och titel</div>
+</div>
+<div class="paragraph">
+<p>Många till-många-relationer går inte att skapa i databastabeller, utan kräver en extra tabell; en så kallad <em>relationstabell</em>.</p>
+</div>
+<div class="paragraph">
+<p>En relationstabell är en extra tabell som ligger mellan de två ingående entiteterna och omvandlar relationen till två stycken en-till-många-relationer iställer.
+Om man inte kan komma på vad man ska döpa relationen kan man döpa den till de två ingående entiteternas namn ( i vårt fall "Genre-Titles")</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<caption class="title">Table 19. Title-tabellen (ena "en-änden" i många-till-många-relationen).</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">id</th>
+<th class="tableblock halign-left valign-top">name</th>
+<th class="tableblock halign-left valign-top">isbn</th>
+<th class="tableblock halign-left valign-top">pagecount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillboken"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1337</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"BBQ Book"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Würstbuch"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">345</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7331</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all" style="width: 30%;">
+<caption class="title">Table 20. Genre-tabellen (andra "en-änden" i många-till-många-relationen).</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Matlagning"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Grillning"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Korv"</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all" style="width: 20%;">
+<caption class="title">Table 21. Genre-Title-tabellen (relationstabellen i många-till-många-relationen)</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">title_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">genre_id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sql">5. SQL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>För att kommunicera med relationella databashanterare används databasspråket SQL (Structured Query Language).</p>
+</div>
+<div class="paragraph">
+<p>SQL kan uttalas "ess-ku-ell" (på svenska), "es-que-ell" (på engelska), som Engelska ordet "sequel" eller som "seek well".</p>
+</div>
+<div class="paragraph">
+<p>SQL skiljer sig från programmeringsspråk som t.ex Ruby eller Javascript genom att man definerar vilken information man vill ha, och lämnar upp till databashanteraren att avgöra <strong>hur</strong> den på bästa (snabbaste och säkraste) sätt ska hämta efterfrågad data.</p>
+</div>
+<div class="listingblock">
+<div class="title">Ruby - rad 8-14 beskriver <strong>hur</strong> datan ska hämtas (i det här fallet med hjälp av en while-loop).</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><table class="pyhltable"><tr><td class="linenos"><div class="linenodiv"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</div></td><td class="code"><span></span><span class="tok-n">titles</span> <span class="tok-o">=</span> <span class="tok-o">[</span> <span class="tok-p">{</span><span class="tok-nb">name</span><span class="tok-p">:</span> <span class="tok-s1">&#39;BBQ Book&#39;</span><span class="tok-p">,</span> <span class="tok-ss">isbn</span><span class="tok-p">:</span> <span class="tok-s1">&#39;123&#39;</span><span class="tok-p">,</span> <span class="tok-ss">page_count</span><span class="tok-p">:</span> <span class="tok-mi">1337</span><span class="tok-p">},</span>
+          <span class="tok-p">{</span><span class="tok-nb">name</span><span class="tok-p">:</span> <span class="tok-s1">&#39;Grillboken&#39;</span><span class="tok-p">,</span> <span class="tok-ss">isbn</span><span class="tok-p">:</span> <span class="tok-s1">&#39;234&#39;</span><span class="tok-p">,</span> <span class="tok-ss">page_count</span><span class="tok-p">:</span> <span class="tok-mi">42</span><span class="tok-p">},</span>
+          <span class="tok-o">...</span>
+        <span class="tok-o">]</span>
+
+<span class="tok-n">long_titles</span> <span class="tok-o">=</span> <span class="tok-o">[]</span>
+
+<span class="hll"><span class="tok-n">i</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+</span><span class="hll"><span class="tok-k">while</span> <span class="tok-n">i</span> <span class="tok-o">&lt;</span> <span class="tok-n">titles</span><span class="tok-o">.</span><span class="tok-n">length</span>
+</span><span class="hll">    <span class="tok-k">if</span> <span class="tok-n">titles</span><span class="tok-o">[</span><span class="tok-n">i</span><span class="tok-o">][</span><span class="tok-ss">:page_count</span><span class="tok-o">]</span> <span class="tok-o">&gt;</span> <span class="tok-mi">500</span>
+</span><span class="hll">        <span class="tok-n">long_titles</span> <span class="tok-o">&lt;&lt;</span> <span class="tok-n">books</span><span class="tok-o">[</span><span class="tok-n">i</span><span class="tok-o">]</span>
+</span><span class="hll">    <span class="tok-k">end</span>
+</span><span class="hll">    <span class="tok-n">i</span> <span class="tok-o">+=</span> <span class="tok-mi">1</span>
+</span><span class="hll"><span class="tok-k">end</span>
+</span>
+<span class="tok-nb">p</span> <span class="tok-n">long_titles</span>
+</td></tr></table></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">SQL - <strong>hur</strong> databashanteraren ska hämta den efterfrågade informationen framgår inte i frågan</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sql"><table class="pyhltable"><tr><td class="linenos"><div class="linenodiv">1</div></td><td class="code"><span></span><span class="tok-k">SELECT</span> <span class="tok-o">*</span> <span class="tok-k">FROM</span> <span class="tok-n">titles</span> <span class="tok-k">WHERE</span> <span class="tok-n">page_count</span> <span class="tok-o">&gt;</span> <span class="tok-mi">500</span><span class="tok-p">;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+</td></tr></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Förutsatt att det i databasen finns en tabell vid namn titles</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vagrant">6. Vagrant</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="http://vagrantup.com">Vagrant</a> är ett program som underlättar att bygga och starta virtuella operativsystemsmaskiner.</p>
+</div>
+<div class="paragraph">
+<p>I den här kursen använder vi Vagrant för att snabbt kunna installera, konfigurera, och starta virtuella linuxmaskiner att köra våra webbapplikationer på.</p>
+</div>
+<div class="sect2">
+<h3 id="_virtualiseringsstöd_i_bios">6.1. Virtualiseringsstöd i BIOS</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Stäng av datorn (starta <strong>inte</strong> om).</p>
+</li>
+<li>
+<p>Starta datorn igen. Följ sedan instruktionerna nedan:</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>När du ser texten <em>To Interrupt normal startup, press Enter</em>, tryck på <kbd>Enter ↵</kbd>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/06/1.JPG" alt="BIOS Interrupt">
+</div>
+<div class="title">Figure 8. BIOS Interrupt</div>
+</div>
+<div class="paragraph">
+<p>Om datorn går vidare till Windows-uppstarten får du stänga av datorn och försöka igen.</p>
+</div>
+<div class="paragraph">
+<p>När du ser <em>Startup Interrupt Menu</em> trycker du på <kbd>F1</kbd>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/06/2.JPG" alt="Startup Interrupt Menu">
+</div>
+<div class="title">Figure 9. Startup Interrupt Menu</div>
+</div>
+<div class="paragraph">
+<p>Du får nu se se <em>Main-fliken i bios</em>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/06/3.JPG" alt="Main-fliken i BIOS">
+</div>
+<div class="title">Figure 10. Main-fliken i BIOS</div>
+</div>
+<div class="paragraph">
+<p>Använd piltangenterna <kbd>◀</kbd><kbd>▶</kbd> för att navigera till <em>Security</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/06/4.JPG" alt="Security-fliken i BIOS">
+</div>
+<div class="title">Figure 11. Security-fliken i BIOS</div>
+</div>
+<div class="paragraph">
+<p>Använd piltangenterna <kbd>▲</kbd><kbd>▼</kbd>för att markera <em>Disabled</em>. Tryck på <kbd>Enter ↵</kbd>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/06/5.JPG" alt="Intel Virtualization Technology Disabled">
+</div>
+<div class="title">Figure 12. Intel Virtualization Technology Disabled</div>
+</div>
+<div class="paragraph">
+<p>Använd sen piltangenterna <kbd>▲</kbd><kbd>▼</kbd>för att välja <em>Enabled</em>, och sen <kbd>Enter ↵</kbd> igen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/06/6.JPG" alt=".Intel Virtualization Technology Enabled">
+</div>
+<div class="title">Figure 13. Intel Virtualization Technology Enabled</div>
+</div>
+<div class="paragraph">
+<p>Spara ändringarna i BIOS genom att trycka på <kbd>F10</kbd>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/06/7.JPG" alt="Setup Confirmation">
+</div>
+<div class="title">Figure 14. Setup Confirmation</div>
+</div>
+<div class="paragraph">
+<p>Välj <em>Yes</em> med piltangenterna <kbd>◀</kbd><kbd>▶</kbd> och tryck på <kbd>Enter ↵</kbd>. Datorn startar nu om.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_registrering_av_virtuell_maskin_fil">6.2. Registrering av virtuell maskin-fil.</h3>
+<div class="paragraph">
+<p>För att registrera den virtuella maskinen så Vagrant kan använda den behöver vi importera filen till vagrant.
+(filen som innehåller maskinen finns med i imagen för din dator (i mappen <code>c:\vagrant_boxes</code>)).</p>
+</div>
+<div class="paragraph">
+<p>I terminalen, skriv</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cmd">vagrant box add c:\vagrant-boxes\namnet-på-filen.box --name ubuntu-server <i class="conum" data-value="1"></i><b>(1)</b> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Byt ut <code>namnet-på-filen</code> mot filens riktiga namn</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Värdet efter <code>--name</code> är namnet den virtuella maskinen kommer registreras som i vagrants "databas".</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Vagrant kommer nu packa upp filen och registrera den i sin databas.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_skapande_av_virtuell_maskin">6.3. Skapande av virtuell maskin</h3>
+<div class="paragraph">
+<p>Skapa en mapp för din webapplikation. Navigera till mappen i terminalen och skriv:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cmd">vagrant init ubuntu-server <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>byt ut <code>ubuntu-server</code> mot namnet du registrerade din virtuella maskin med.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Vagrant skapar nu en <code>Vagrantfile</code> i mappen du körde kommandot:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cmd">A `Vagrantfile` has been placed in this directory. You are now
+ready to `vagrant up` your first virtual environment! Please read
+the comments in the Vagrantfile as well as documentation on
+`vagrantup.com` for more information on using Vagrant.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_konfigurering_av_nätverk_för_den_virtuella_maskinen">6.4. Konfigurering av nätverk för den virtuella maskinen</h3>
+<div class="paragraph">
+<p>För att kunna komma åt webbservern på din virtuella maskin behöver du konfigurera nätverket.</p>
+</div>
+<div class="paragraph">
+<p>Öppna <code>Vagrantfile</code> i en editor.</p>
+</div>
+<div class="paragraph">
+<p>Leta reda på raden <code># config.vm.network "public network"</code> och avkommentera den.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-o">...</span>
+  <span class="tok-c1"># Create a public network, which generally matched to bridged network.</span>
+  <span class="tok-c1"># Bridged networks make the machine appear as another physical device on</span>
+  <span class="tok-c1"># your network.</span>
+<span class="hll">  <span class="tok-n">config</span><span class="tok-o">.</span><span class="tok-n">vm</span><span class="tok-o">.</span><span class="tok-n">network</span> <span class="tok-s2">&quot;public_network&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+</span><span class="tok-o">...</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Ta bort kommentaren på den här raden.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>När din virtuella maskin bootar kommer den få en egen ip-adress.</p>
+</div>
+<div class="paragraph">
+<p>Alla (på samma nätverk) kan komma åt den virtuella maskinen med hjälp av dess ip-adress.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_starta_den_virtuella_maskinen">6.5. Starta den virtuella maskinen</h3>
+<div class="paragraph">
+<p>I samma mapp som <code>Vagrantfile</code>, skriv</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cmd">vagrant up</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Den virtuella maskinen bootas och du kommer se en utskrift i terminalen liknande denna:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cmd">==<span class="tok-p">&gt;</span> default: Importing base box &#39;ubuntu-server&#39;...
+Progress: 30%</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>När maskinen är importerad kommer den fråga vilket nätverkskort den ska använda:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cmd">==<span class="tok-p">&gt;</span> default: Matching MAC address for NAT networking...
+==<span class="tok-p">&gt;</span> default: Setting the name of the VM: intro_vagrant_och_sinatra_default_1506500026362_91339
+==<span class="tok-p">&gt;</span> default: Clearing any previously set network interfaces...
+==<span class="tok-p">&gt;</span> default: Available bridged network interfaces:
+1) en5: Thunderbolt Ethernet Slot 1
+<span class="hll">2) en0: Wi-Fi (AirPort) <i class="conum" data-value="1"></i><b>(1)</b>
+</span>3) en1: Thunderbolt 1
+4) en2: Thunderbolt 18
+5) bridge0
+6) p2p0
+7) awdl0
+==<span class="tok-p">&gt;</span> default: When choosing an interface, it is usually the one that is
+==<span class="tok-p">&gt;</span> default: being used to connect to the internet.
+    default: Which interface should the network bridge to?</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Välj alternativet som verkar vara ditt wifi-nätverskort.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Efter du valt nätverkskort fortsätter maskinen att boota:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cmd">==<span class="tok-p">&gt;</span> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+    default: Adapter 2: bridged
+==<span class="tok-p">&gt;</span> default: Forwarding ports...
+    default: 22 (guest) =<span class="tok-p">&gt;</span> 2222 (host) (adapter 1)
+==<span class="tok-p">&gt;</span> default: Booting VM...
+==<span class="tok-p">&gt;</span> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+==<span class="tok-p">&gt;</span> default: Machine booted and ready!
+==<span class="tok-p">&gt;</span> default: Checking for guest additions in VM...
+==<span class="tok-p">&gt;</span> default: Configuring and enabling network interfaces...
+==<span class="tok-p">&gt;</span> default: Mounting shared folders...
+    default: /vagrant =<span class="tok-p">&gt;</span> /Users/daniel.berg/Documents/Kurser/Webbserverprogrammering 1/intro_vagrant_och_sinatra</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Om du vill kan du dubbelkolla att maskinen faktiskt körs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cmd">vagrant status</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vilket förhoppningsvis ger följande utskrift:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cmd">Current machine states:
+
+default                   running (virtualbox)
+
+The VM is running. To stop this VM, you can run `vagrant halt` to
+shut it down forcefully, or you can run `vagrant suspend` to simply
+suspend the virtual machine. In either case, to restart it again,
+simply run `vagrant up`.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_logga_in">6.6. Logga in</h3>
+<div class="paragraph">
+<p>För att kontrollera den virtuella maskinen kommer du använda dig av SSH; <strong>S</strong>ecure <strong>SH</strong>ell:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cmd">vagrant ssh</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Du loggas nu in i den virtuella maskinen, och möts av en linuxterminal:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cmd">Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.4.0-62-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+56 packages can be updated.
+30 updates are security updates.
+
+Last login: Wed Aug  9 15:43:57 2017 from 10.0.2.2
+[Oh My Zsh] Would you like to check for updates? [Y/n]: <i class="conum" data-value="1"></i><b>(1)</b>
+➜  ~</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Tryck på <kbd>N</kbd> (du kan uppdatera nästa gång om du vill).</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_delad_mapp">6.7. Delad mapp</h3>
+<div class="paragraph">
+<p>Vagrant delar automagiskt innehållet i mappen med <code>Vagrantfile</code> mellan Windows och linux.</p>
+</div>
+<div class="paragraph">
+<p>Detta innebär att du kan jobba med filerna i Windows, och webbservern som körs i den virtuella linuxmaskinen kan komma åt filerna.
+I den virtuella maskinen hittar du den delade mappen i <code>/vagrant</code></p>
+</div>
+<div class="listingblock">
+<div class="title">"dir" i den delade mappen i Windows</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cmd">C<span class="tok-p">:</span><span class="tok-nl">\Users\admin\Documents\Webbserverprogrammering\min_webapp</span><span class="tok-c1">&gt;dir</span>
+ Volume in drive C has no label.
+ Volume Serial Number is 24BD-F54D
+
+ Directory of C:\Users\admin\Documents\Webbserverprogrammering\min_webapp
+
+2017-09-27  12:50    <span class="tok-p">&lt;</span>DIR<span class="tok-p">&gt;</span>          .
+2017-09-27  12:50    <span class="tok-p">&lt;</span>DIR<span class="tok-p">&gt;</span>          ..
+2017-09-27  12:49               166 config.ru
+2017-09-27  12:49                50 Gemfile
+2017-09-27  12:49                63 min_webapp.rb
+2017-09-27  12:47              3018 Vagrantfile
+               4 File(s)              0 bytes
+               2 Dir(s)  15 661 158 400 bytes free
+
+C<span class="tok-p">:</span><span class="tok-nl">\Users\admin\Documents\Webbserverprogrammering\min_webapp</span><span class="tok-c1">&gt;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">"ls -la" i /vagrant i den virtuella maskinen</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="zsh">➜ /vagrant ls -la
+total 20
+drwxr-xr-x  1 vagrant vagrant  238 Sep 27 12:55 .
+drwxr-xr-x 24 root    root    4096 Aug  9 15:15 ..
+-rw-r--r--  1 vagrant vagrant  166 Sep 26 09:26 config.ru
+-rw-r--r--  1 vagrant vagrant   50 Sep 26 09:26 Gemfile
+-rw-r--r--  1 vagrant vagrant   63 Sep 26 09:24 min_webapp.rb
+drwxr-xr-x  1 vagrant vagrant  102 Sep 27 10:13 .vagrant
+-rw-r--r--  1 vagrant vagrant 3018 Sep 27 10:13 Vagrantfile</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_logga_ut">6.8. Logga ut</h3>
+<div class="paragraph">
+<p>För att logga ut från den virtuella maskinen skriver du:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="zsh"><span class="hll">➜ exit
+</span>Connection to 127.0.0.1 closed.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>När uppkopplingen stängts är du tillbaks i Windows.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stänga_av">6.9. Stänga av</h3>
+<div class="paragraph">
+<p>För att stänga av den virtuella maskinen skriver du i maskinens mapp i Windows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cmd"><span class="hll">vagrant halt
+</span>==<span class="tok-p">&gt;</span> default: Attempting graceful shutdown of VM...</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_linux">7. Linux</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_navigation_i_filsystemet">7.1. Navigation i filsystemet</h3>
+<div class="paragraph">
+<p>För att navigera i filsystemet använder du följande kommandon:</p>
+</div>
+<div class="paragraph">
+<p>Observera att linux använder <code>/</code> (slash) för att dela upp sökvägen, inte <code>\</code> (backslash).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="zsh">pwd       <i class="conum" data-value="1"></i><b>(1)</b>
+ls        <i class="conum" data-value="2"></i><b>(2)</b>
+ls -la    <i class="conum" data-value="3"></i><b>(3)</b>
+cd ..     <i class="conum" data-value="4"></i><b>(4)</b>
+cd /      <i class="conum" data-value="5"></i><b>(5)</b>
+cd mapp <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><strong>P</strong>rint <strong>W</strong>orking <strong>D</strong>irectory. Skriver ut absoluta sökvägen till aktuell mapp.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><strong>L</strong>i<strong>s</strong>t. Skriver ut namn på icke-dolda filer och mappar i aktuell mapp. Motsvarar <code>Dir /b</code> i Windows.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><strong>L</strong>i<strong>s</strong>t <strong>L</strong>ist <strong>A</strong>ll. Skriver ut en detaljerad "tabell" med namn på samtliga filer och mappar i aktuell mapp. Motsvarar <code>Dir</code> i Windows.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td><strong>C</strong>hange <strong>D</strong>irectory. Går upp en nivå i filträdet - precis som Windows.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td><strong>C</strong>hange <strong>D</strong>irectory. Går till roten av filsystemet - motsvarande <code>cd c:\</code> i Windows.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td><strong>C</strong>hange <strong>D</strong>irectory. Går till mappen definerad i sökväg - precis som i Windows.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_manipulering_av_filer_och_mappar">7.2. Manipulering av filer och mappar</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="zsh">touch filnamn    <i class="conum" data-value="1"></i><b>(1)</b>
+mkdir mappnamn   <i class="conum" data-value="2"></i><b>(2)</b>
+mv namn nyttnamn <i class="conum" data-value="3"></i><b>(3)</b>
+rm filnamn <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Skapar en tom fil med namnet "filnamn" (eller uppdaterar datum filen senast blev manipulerad, om filen redan finns).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>skapar en tom mapp med namnet "mappnamn"</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>byter namn på en fil/mapp med namnet "namn" till namnet "nyttnamn"</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>tar bort filen med namnet "filnamn" - obs - den hamnar inte i papperskorgen!</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ip_adress">7.3. Ip-adress</h3>
+<div class="paragraph">
+<p>För att kunna surfa till din webbapplikation behöver du veta dess ip-adress.</p>
+</div>
+<div class="paragraph">
+<p>Kommandot <code>ifconfig</code> listar relevant nätverksinformation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cmd">ifconfig <i class="conum" data-value="1"></i><b>(1)</b>
+enp0s3    Link encap:Ethernet  HWaddr 08:00:27:ac:8c:09
+          inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0 <i class="conum" data-value="2"></i><b>(2)</b>
+          inet6 addr: fe80::a00:27ff:feac:8c09/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:586 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:422 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:64092 (64.0 KB)  TX bytes:59134 (59.1 KB)
+
+enp0s8    Link encap:Ethernet  HWaddr 08:00:27:64:6a:ee
+<span class="hll">          inet addr:192.168.xxx.xxx  Bcast:192.168.195.255  Mask:255.255.252.0 <i class="conum" data-value="3"></i><b>(3)</b>
+</span>          inet6 addr: fe80::a00:27ff:fe64:6aee/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1591 errors:0 dropped:8 overruns:0 frame:0
+          TX packets:19 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:223955 (223.9 KB)  TX bytes:2584 (2.5 KB)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0 €<i class="conum" data-value="4"></i><b>(4)</b>
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:36 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:36 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1
+          RX bytes:20865 (20.8 KB)  TX bytes:20865 (20.8 KB)</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Motsvarar <code>ipconfig</code> i windows</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Det här är en speciell ip-adress virtualbox använder</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>192.168.xxx.xxx är adressen på elevnätet - det är den här du vill ha.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>127.0.0.1 är den virtuella maskinens interna ip-adress.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-09-28 07:13:06 UTC
+</div>
+</div>
+</body>
+</html>
