@@ -1,0 +1,11 @@
+= Att arbeta med data
+
+* Repetition av datastrukturer
+* Array
+* Dubbelarray
+* Trippelarray
+* Hash
+* Nested Hash
+* Kombinationer av olika datastrukturer
+    * Array i Hash i Hash i Array ...
+* Datatransformation, att omvandla en struktur till en annan

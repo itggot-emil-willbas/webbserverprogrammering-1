@@ -1,0 +1,6 @@
+= Säkerhet
+
+* Inloggningsystem
+* Sårbarheter hos klienten
+* Sårbarheter hos webbapplikationen
+* Sårbarheter hos databasen

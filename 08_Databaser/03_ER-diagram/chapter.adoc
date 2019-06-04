@@ -9,7 +9,7 @@ ER-diagram illustrerar en databas logiska uppbyggnad, det vill säga vilka tabel
 Entiteter representerar tabeller i databasen. Entiteter ritas som rektanglar, med namnet (i singular) i mitten.
 
 .Två entiteter
-image::images/03/entities.png[]
+image::./img/entities.png[]
 
 == Attribut
 

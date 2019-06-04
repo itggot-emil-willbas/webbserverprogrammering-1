@@ -1,0 +1,12 @@
+= Repetition
+
+* HTML
+* CSS
+* JS?
+* Webbsidor och webben som platform
+* Programmering
+    * Variabler
+    * Datatyper
+    * Villkor
+    * Loopar
+    * Funktioner

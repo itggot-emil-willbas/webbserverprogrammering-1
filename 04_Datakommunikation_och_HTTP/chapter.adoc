@@ -1,0 +1,12 @@
+= Datakommunikation och Protokoll
+
+== Nätverk och Internet
+* Protokoll
+
+== Hur data skickas och tas emot
+* Server<->Klient-Modellen
+* Sekvensdiagram
+
+== Protokollet HTTP
+* HTTP, Webbläsaren och Webbservern
+* Statiska- vs Dynamiska Responses

@@ -1,0 +1,5 @@
+= Databasdrivna Webbapplikationer
+
+* Databasdrivna Dynamiska Webbplatser
+* CRUD Routing
+* Arkitektur: Skinny Controller, Fat Model
