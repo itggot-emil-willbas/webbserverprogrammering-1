@@ -1,6 +1,11 @@
 = Repetition
 
 * HTML
+
+Vi bygger en HTML-sida med rubriker, underrubriker och paragrafer. Texten är Lorum Ipsum. Som navigation inom sidan gör vi en lista med länkar till de olika sektionerna på sidan. Infoga även några bilder. 
+
+TIP: Bonusbana: Skapa ett HTML-formulär.
+
 * CSS
 * JS?
 * Webbsidor och webben som platform
