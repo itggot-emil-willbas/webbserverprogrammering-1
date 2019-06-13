@@ -1,0 +1,12 @@
+= Fördjupning i HTTP
+
+* Delar av en request/response
+    * Requestline
+    * Headers
+    * Body
+    
+* Begränsningar i HTTP
+    * Statelessness, Sessioner
+    * Request Overhead, webbsiteoptimering
+    * Plaintext, Kryptering med HTTPS
+    * Unescaped text, Escaping

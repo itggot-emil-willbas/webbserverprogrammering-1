@@ -1,0 +1,6 @@
+= Fördjupning
+
+* Fördjupningar av tekniker i kursen
+* Alternativ till alla tekniker i kursen
+* Webbsäkerhet för användaren
+* Deployment

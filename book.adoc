@@ -7,17 +7,28 @@
 
 = Webbserverprogrammering 1
 
-include::01_Introduktion_till_databaser/chapter.adoc[leveloffset=+1]
+include::01_Repetition/chapter.adoc[leveloffset=+1]
 
-include::02_Tabeller_och_relationer/chapter.adoc[leveloffset=+1]
+include::02_Data/chapter.adoc[leveloffset=+1]
 
-include::03_ER-diagram/chapter.adoc[leveloffset=+1]
+include::03_Arkitektur/chapter.adoc[leveloffset=+1]
 
-include::04_Databasmodellering_med_ER/chapter.adoc[leveloffset=+1]
+include::04_Datakommunikation_och_HTTP/chapter.adoc[leveloffset=+1]
 
-include::05_Introduktion_till_SQL/chapter.adoc[leveloffset=+1]
+include::05_Ramverk/chapter.adoc[leveloffset=+1]
 
-include::06_Vagrant/chapter.adoc[leveloffset=+1]
+include::06_HTTP_Fördjupning/chapter.adoc[leveloffset=+1]
 
-include::07_Linux/chapter.adoc[leveloffset=+1]
+include::07_Utvecklingsprocessen/chapter.adoc[leveloffset=+1]
+
+include::08_Databaser/chapter.adoc[leveloffset=+1]
+
+include::09_Databasautomation/chapter.adoc[leveloffset=+1]
+
+include::10_Databasdrivna_Webbapplikationer/chapter.adoc[leveloffset=+1]
+
+include::11_Säkerhet/chapter.adoc[leveloffset=+1]
+
+include::12_Fördjupning/chapter.adoc[leveloffset=+1]
+
 

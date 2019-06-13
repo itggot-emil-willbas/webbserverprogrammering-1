@@ -1,0 +1,8 @@
+= Arkitektur
+
+Hur man strukturerar sina filer och sin kod i större projekt.
+
+* Scope, Variablers synlighet
+* Att koppla ihop funktioner
+* Att koppla ihop flera filer
+* Separation av logik: Presentationslogik och Affärslogik
